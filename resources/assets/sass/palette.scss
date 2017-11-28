@@ -1,0 +1,319 @@
+.palete-title{
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  text-align: center;
+
+  margin: 100px 0;
+  padding: 0 30px;
+  font-size: 80px;
+
+}
+.controls{
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+}
+.newcolor, .edit{
+  font-size: 20px;
+  display: flex;
+  border-radius: 10px;
+  padding-right: 20px;
+  height: 50px;
+  margin-top: 15px;
+  line-height: 50px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+.edit, .likes, .views{
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex-direction: row-reverse;
+}
+.cantAddNewColor{
+  opacity: 0.3;
+  cursor: auto;
+}
+.creator, .views, .likes{
+  font-size: 20px;
+  line-height: 50px;
+  margin-top:15px;
+  padding: 0 20px;
+  color: inherit;
+  display: flex;
+}
+.views, .likes{
+  font-size: 25px;
+  margin-top: 30px;
+}
+.likes{
+  padding-right: 0px;
+}
+
+
+.paleta{
+  box-shadow: 170px 30px 120px -110px rgba(0,0,0,0.6);
+}
+.color{
+  height: 80px;
+  transition: 0.4s height ease;
+  overflow: hidden;
+}
+.active{
+  height: 407px;
+  flex-grow: 1;
+}
+.pre-remove-color{
+  height: 0px;
+}
+.color-bar{
+  display: flex;
+  height: 80px;
+  line-height: 80px;
+  font-size: 30px;
+  justify-content: space-between;
+  align-items:center;
+}
+.color-title{
+  text-transform: uppercase;
+  float: left;
+  margin-left: 40px;
+  //flex-grow: 1;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  width: 150px;
+  overflow: hidden;
+  height: 40px;
+  line-height: 40px;
+}
+.color-title:focus, .palete-title:focus, a:focus{
+  outline: none;
+}
+.icons{
+  display: flex;
+  justify-content:flex-end;
+  width: 150px;
+  flex-direction: row;
+}
+
+.color-content{
+  padding:0px;
+  color: inherit;
+  background-color: inherit;
+
+}
+.color-content > div{
+  padding: 0px 40px;
+  padding-bottom: 80px;
+}
+.suwaki{
+  background-color: inherit;
+}
+
+.tabs-nav {
+  position: relative;
+  background-color: inherit;
+  line-height: 24px;
+  display: flex;
+}
+.tabs-nav:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid;
+  z-index: 0;
+}
+.tabs-link{
+  display: block;
+  float: left;
+  font-size: 16px;
+  width: 80px;
+  top:1px;
+  text-align: center;
+  position: relative;
+  padding: 5px 10px 5px 10px;
+  z-index: 2;
+  vertical-align: middle;
+  color: inherit;
+  transition: 0.2s font-size ease;
+
+}
+.tabs-link:hover{
+  font-size: 20px;
+  cursor: pointer;
+
+}
+.active-tab{
+  font-size: 20px;
+  border: 2px solid;
+  border-radius: 4px 4px 0 0;
+  border-bottom-color: transparent;
+  background-color: inherit;
+  z-index: 2;
+  color: inherit;
+
+}
+.link{
+  padding: 0px;
+  display: flex;
+  flex-direction:column;
+}
+.property{
+  display: flex;
+  flex-direction:row;
+  flex-grow:1;
+  line-height: 30px;
+  margin: 20px 10px;
+  align-items: center;
+  font-size: 20px;
+}
+.value{
+  width: 50px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.slider, .ui-widget.ui-widget-content{
+  position: relative;
+  flex-grow:1;
+  height: 10px;
+  border: none;
+  border-radius: 8px;
+  //box-shadow: 0px 0px 3px black inset;
+  color: inherit;
+
+}
+span.ui-slider-handle.ui-corner-all.ui-state-default, span.ui-slider-handle.ui-corner-all.ui-state-default:hover{
+  position: relative;
+  border-radius: 50%;
+  display: block;
+  height: 16px;
+  width: 16px;
+  border: 3px solid;
+  background-color: transparent;
+  color: inherit;
+  top:-3px;
+  outline: none;
+  margin-left: -9px;
+}
+.slider-handle-wraper{
+  margin:0 6px;
+}
+.picker{
+  //background-color: green;
+}
+.disabled{
+  opacity: 0.6;
+}
+
+/*SLIDERS*/
+.rgb-r-slider{
+  background: linear-gradient(to right, rgb(0,0,0) 0%,rgb(255,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.rgb-g-slider{
+  background: linear-gradient(to right, rgb(0,0,0) 0%,rgb(0,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.rgb-b-slider{
+  background: linear-gradient(to right, rgb(0,0,0) 0%,rgb(0,0,255) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.hsl-h-slider{
+  background: linear-gradient(to right, hsla(0, 100%, 50%, 1), hsla(10, 100%, 50%, 1), hsla(20, 100%, 50%, 1), hsla(30, 100%, 50%, 1), hsla(40, 100%, 50%, 1), hsla(50, 100%, 50%, 1), hsla(60, 100%, 50%, 1), hsla(70, 100%, 50%, 1), hsla(80, 100%, 50%, 1), hsla(90, 100%, 50%, 1), hsla(100, 100%, 50%, 1), hsla(110, 100%, 50%, 1), hsla(120, 100%, 50%, 1), hsla(130, 100%, 50%, 1), hsla(140, 100%, 50%, 1), hsla(150, 100%, 50%, 1), hsla(160, 100%, 50%, 1), hsla(170, 100%, 50%, 1), hsla(180, 100%, 50%, 1), hsla(190, 100%, 50%, 1), hsla(200, 100%, 50%, 1), hsla(210, 100%, 50%, 1), hsla(220, 100%, 50%, 1), hsla(230, 100%, 50%, 1), hsla(240, 100%, 50%, 1), hsla(250, 100%, 50%, 1), hsla(260, 100%, 50%, 1), hsla(270, 100%, 50%, 1), hsla(280, 100%, 50%, 1), hsla(290, 100%, 50%, 1), hsla(300, 100%, 50%, 1), hsla(310, 100%, 50%, 1), hsla(320, 100%, 50%, 1), hsla(330, 100%, 50%, 1), hsla(340, 100%, 50%, 1), hsla(350, 100%, 50%, 1), hsla(360, 100%, 50%, 1));;
+
+}
+
+
+div.jQWCP-wWidget.jQWCP-block, div.jQWCP-wWheel{
+  outline: none;
+  background-color: transparent;
+  padding: 0px;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 232px;
+  height: 232px;
+  margin: 5px;
+  margin-left: calc(50% - 116px);
+
+}
+div.jQWCP-wWheel{
+  border-radius: 50%;
+  box-shadow: 0 0 35px -20px black;
+  transition: 0.2s box-shadow ease;
+}
+div.jQWCP-wWheel:hover{
+  box-shadow: 0 0 35px -20px black;
+}
+
+
+
+/*GLYPHICONS*/
+
+.glyphicon-sort{
+  cursor: grab;
+  font-size: 20px;
+
+}
+.sort-hidden{
+  visibility: collapse;
+  width: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.glyphicon-align-justify, .glyphicon-plus, .glyphicon-floppy-saved{
+  font-size: 30px;
+  margin: 0 20px;
+
+}
+.glyphicon-align-justify, .glyphicon-floppy-saved{
+  line-height: 80px;
+}
+.glyphicon-floppy-saved{
+  top: 4px;
+}
+
+.glyphicon-pencil{
+  font-size: 23px;
+  line-height: 50px;
+  margin: 0 10px;
+}
+
+.glyphicon-heart,.glyphicon-heart-empty{
+  font-size: 23px;
+  align-self: flex-end;
+}
+
+
+
+
+@media (max-width: 1200px) {
+
+}
+@media (max-width: 992px) {
+
+
+  .active{
+    height:750px;
+  }
+}
+
+@media (max-width: 768px) {
+
+
+  .palete-title{
+
+    font-size: 60px;
+
+  }
+}
+
+@media (max-width: 600px) {
+
+  .palete-title{
+
+    font-size: 40px;
+
+  }
+}
+

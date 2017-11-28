@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <div class="navbar-header">
+        <div class="nav-icon4">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a class="logo onlymobile"></a>
+        <a class="main-menu-link onlydesktop" href="pages/palette.html" >Palets</a>
+        <a class="main-menu-link onlydesktop" href="#" >Colors</a>
+        <a class="main-menu-link onlydesktop" href="#" >Gradients</a>
+    </div>
+    <div class="searchbar">
+        <input class="searchinput" type="text">
+        <span class="glyphicon glyphicon-search"></span>
+    </div>
+</nav>

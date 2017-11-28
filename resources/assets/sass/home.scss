@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "Menlo";
+  src: url(/Users/gtluszcz/Documents/GT/programowanie/pickolor2/public/fonts/Menlo-Regular.ttf) format("truetype");
+}
+
+.start{
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 0 20px;
+
+
+}
+.welcome{
+  flex-grow: 1;
+}
+.welcome-title{
+  font-size: 40px;
+  font-family: "Montserrat-Regular", Tahoma;
+
+
+}
+.welcome-text{
+  font-size: 20px;
+  font-family: "Montserrat-Regular", Tahoma;
+
+}
+.login-form{
+  background-color: white;
+  height: 400px;
+  width: 30%;
+  margin-left: 20px;
+  min-width: 250px;
+  max-width: 300px;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+@media (max-width: 1200px) {
+
+}
+@media (max-width: 992px) {
+
+
+
+}
+
+@media (max-width: 768px) {
+
+  .welcome-title{
+    font-size: 35px;
+
+  }
+  .welcome-text{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+
+
+}
