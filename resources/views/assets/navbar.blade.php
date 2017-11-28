@@ -5,8 +5,8 @@
             <span></span>
             <span></span>
         </div>
-        <a class="logo onlymobile"></a>
-        <a class="main-menu-link onlydesktop" href="pages/palette.html" >Palets</a>
+        <a class="logo onlymobile" href="/">Pickolor</a>
+        <a class="main-menu-link onlydesktop" href="/palette" >Palets</a>
         <a class="main-menu-link onlydesktop" href="#" >Colors</a>
         <a class="main-menu-link onlydesktop" href="#" >Gradients</a>
     </div>
