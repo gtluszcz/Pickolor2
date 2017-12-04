@@ -35,6 +35,7 @@
             <div class="welcome-title">Color picker for You!</div>
             <p class="welcome-text">Pickolor is a higly intuitive color picker designed especialy for developers. Discover it's magical powers and sign up now...</p>
         </div>
+        @if (!Auth::check())
         <div class="login-form">
             <h2 class="login-title">Create new account</h2>
             <form class="" action="/register" method="POST">
@@ -46,6 +47,7 @@
                 <button class="login-button" type="submit">Sign up!</button>
             </form>
         </div>
+        @endif
     </div>
 @endsection
 
