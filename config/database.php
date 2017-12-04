@@ -6,10 +6,10 @@ $username = $url["user"];
 $password = $url["pass"];
 $database = substr($url["path"], 1);
 
-echo $host."\n";
-echo $username."\n";
-echo $password."\n";
-echo $database."\n";
+//echo $host."\n";
+//echo $username."\n";
+//echo $password."\n";
+//echo $database."\n";
 return [
 
     /*
@@ -74,7 +74,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => 'require',
         ],
 
         'sqlsrv' => [
