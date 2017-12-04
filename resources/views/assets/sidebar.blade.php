@@ -7,7 +7,7 @@
     @if (!Auth::check())
     <div class="sidemenu-bar"><a class="thick" href="/login">sign in </a>/<a class="thick" href="/register"> sign up</a></div>
     @else
-        <div class="sidemenu-bar">Auth::user()->name</div>
+        <div class="sidemenu-bar">{{Auth::user()->name}}</div>
     @endif
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="/palette" >Palets</a></div>
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="#" >Colors</a></div>
