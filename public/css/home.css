@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Menlo";
-  src: url(/fonts/Menlo-Regular.ttf) format("truetype");
-}
-
 .start {
   display: -webkit-box;
   display: -ms-flexbox;
