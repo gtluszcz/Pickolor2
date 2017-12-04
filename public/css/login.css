@@ -1,0 +1,80 @@
+.login-logo {
+    font-family: Lobster, serif;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 3em;
+    letter-spacing: 10px;
+}
+
+.login-logo span {
+    display: block;
+    margin-top: 20px;
+}
+
+.login-logo img {
+    width: 150px;
+}
+
+.login-wrapper {
+    background-color: #FFFFFF;
+    width: 50%;
+    max-width: 400px;
+    margin: 30px auto;
+    border-radius: 5px;
+    padding-top: 20px;
+}
+
+.login-form {
+    margin: 20px 40px;
+}
+
+.login-field {
+    border-radius: 5px;
+    border: 1px solid #CBCBD2;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px 5px;
+    box-sizing: border-box;
+}
+
+.login-button {
+    border-radius: 5px;
+    background-color: #48BA44;
+    border: 1px solid #CBCBD2;
+    width: 100%;
+    padding: 10px 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #2D7437;
+}
+
+.login-title {
+    text-align: center;
+    font-weight: normal;
+    color: #48BA44;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.register-link {
+    text-align: center;
+    border-top: 1px solid #DDDDDD;
+    padding: 20px 0;
+    font-size: 1.3em;
+}
+
+.register-link a {
+    text-decoration: none;
+    color: #48BA44;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
