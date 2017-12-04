@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class SessionsControler extends Controller
 {
     public function create(){
-        return("");
+        return view("login");
+    }
+    public function destroy(){
+        auth()->logout();
+        redirect()->home();
     }
 }

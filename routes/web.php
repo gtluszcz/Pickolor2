@@ -22,3 +22,4 @@ Route::get('/register', 'RegistrationControler@create');
 Route::post('/register', 'RegistrationControler@store');
 
 Route::get('/login', 'SessionsController@create');
+Route::get('/logout', 'SessionsController@destroy');
