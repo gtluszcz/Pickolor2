@@ -35,8 +35,9 @@
                 <input class="login-field" name="password" type="password" placeholder="Password">
                 <button class="login-button" type="submit">Log In</button>
             </form>
+            @include("assets/error")
             <div class="register-link">
-                <span>Don't have an acount?<a href="/register"> Sign in</a></span>
+                <span>Don't have an acount?<a href="/register"> Sign up</a></span>
             </div>
         </div>
     </main>

@@ -43,9 +43,10 @@
                 <input class="login-field" name="name" type="text" placeholder="Username">
                 <input class="login-field" name="email" type="email" placeholder="E-mail">
                 <input class="login-field" type="password" name="password" placeholder="Password">
-                <input class="login-field" type="password" name="password_r" placeholder="Retype password">
+                <input class="login-field" type="password" name="password_confirmation" placeholder="Retype password">
                 <button class="login-button" type="submit">Sign up!</button>
             </form>
+            @include("assets/error")
         </div>
         @endif
     </div>
