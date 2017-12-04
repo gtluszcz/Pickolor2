@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('palette', function () {
     return view('palette');
 });
-Route::get('register', 'RegisterController@create');
-Route::post('register', 'RegisterController@store');
+Route::get('register', 'RegistrationController@create');
+Route::post('register', 'RegistrationController@store');
 
 Route::get('login', 'SessionsController@create');
