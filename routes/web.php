@@ -21,5 +21,5 @@ Route::get('/palette', function () {
 Route::get('/register', 'RegistrationControler@create');
 Route::post('/register', 'RegistrationControler@store');
 
-Route::get('/login', 'SessionsController@create');
-Route::get('/logout', 'SessionsController@destroy');
+Route::get('/login', 'SessionsControler@create');
+Route::get('/logout', 'SessionsControler@destroy');
