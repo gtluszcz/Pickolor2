@@ -14,10 +14,10 @@
 Route::get('/', function () {
     return view('home');
 })->name('home');
-Route::get('palette', function () {
+Route::get('/palette', function () {
     return view('palette');
 });
-Route::get('register', 'RegistrationController@create');
-Route::post('register', 'RegistrationController@store');
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
 
-Route::get('login', 'SessionsController@create');
+Route::get('/login', 'SessionsController@create');

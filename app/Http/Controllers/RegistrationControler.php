@@ -24,7 +24,7 @@ class RegistrationControler extends Controller
 
         auth()->login($user);
 
-        return view('home');
+        return redirect()->home();
     }
 
 }
