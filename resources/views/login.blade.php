@@ -29,9 +29,9 @@
         <h1 class="login-logo"><span>Pickolor</span></h1>
         <div class="login-wrapper">
             <h2 class="login-title">Log in to your account</h2>
-            <form class="login-form" action="engine/login.php" method="POST">
+            <form class="login-form" action="/login" method="POST">
                 {!! csrf_field() !!}
-                <input class="login-field" name="username" type="text" placeholder="Login">
+                <input class="login-field" name="name" type="text" placeholder="Login">
                 <input class="login-field" name="password" type="password" placeholder="Password">
                 <button class="login-button" type="submit">Log In</button>
             </form>
