@@ -30,6 +30,7 @@
         <div class="login-wrapper">
             <h2 class="login-title">Log in to your account</h2>
             <form class="login-form" action="engine/login.php" method="POST">
+                {!! csrf_field() !!}
                 <input class="login-field" name="username" type="text" placeholder="Login">
                 <input class="login-field" name="password" type="password" placeholder="Password">
                 <button class="login-button" type="submit">Log In</button>

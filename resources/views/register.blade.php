@@ -28,6 +28,8 @@
         <div class="login-wrapper">
             <h2 class="login-title">Create new account</h2>
             <form class="login-form" action="/register" method="POST">
+
+                {!! csrf_field() !!}
                 <input class="login-field" name="name" type="text" placeholder="Username">
                 <input class="login-field" name="email" type="email" placeholder="E-mail">
                 <input class="login-field" type="password" name="password" placeholder="Password">
