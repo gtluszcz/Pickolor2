@@ -16,7 +16,7 @@ class SessionsControler extends Controller
     }
 
     public function store(){
-        if (!auth()->attempt(request(['email','password']))){
+        if (!auth()->attempt(request(['name','password']))){
             return back()->withErrors([
                 'message' => 'Please check your credentials'
             ]);
@@ -32,6 +32,10 @@ class SessionsControler extends Controller
     public function destroy(){
         auth()->logout();
         return redirect()->home();
+    }
+
+    public function username(){
+        return 'name';
     }
 
 }
