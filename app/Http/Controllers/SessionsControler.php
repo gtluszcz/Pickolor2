@@ -22,10 +22,17 @@ class SessionsControler extends Controller
             ]);
         }
 
+        echo "success with username!";
+
         return redirect()->home();
     }
     public function destroy(){
         auth()->logout();
         return redirect()->home();
+    }
+
+    public function username()
+    {
+        return 'name';
     }
 }
