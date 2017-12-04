@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Menlo";
+  src: url(/public/fonts/Menlo-Regular.ttf) format("truetype");
+}
+
 .palete-title {
   background-color: transparent;
   border: none;

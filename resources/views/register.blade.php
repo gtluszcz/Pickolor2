@@ -1,16 +1,45 @@
-<main class="nonlogin-wrapper">
-    <h1 class="register-logo"><img src="img/loga.png" alt="logo"><span>What Up To</span></h1>
-    <div class="register-wrapper">
-        <h2 class="register-title">Create new account</h2>
-        <form class="register-form" action="engine/register.php" method="POST">
-            <input class="register-field" name="username" type="text" placeholder="Username">
-            <input class="register-field" name="email" type="email" placeholder="E-mail">
-            <input class="register-field" type="password" name="password" placeholder="Password">
-            <input class="register-field" type="password" name="password_r" placeholder="Retype password">
-            <button class="register-button" type="submit">Sign up!</button>
-        </form>
-        <div class="register-link">
-            <span>Already own an account? <a href="index.php?action=login">Log In!</a></span>
+@extends('layouts/form')
+
+
+
+@section('page_css')
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link type="text/css" href="css/external/jquery-ui.min.css" rel="Stylesheet" />
+    <link type="text/css" href="css/external/jquery-ui.structure.min.css" rel="Stylesheet" />
+    <link type="text/css" href="css/external/jquery-ui.theme.min.css" rel="Stylesheet" />
+
+    <!--my css-->
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/login.css">
+@endsection
+
+
+@section('page_js')
+    <script src="js/external/jquery.js"></script>
+    <script src="js/external/jquery-ui.min.js"></script>
+    <script src="js/external/jquery.ui.touch-punch.min.js"></script>
+@endsection
+
+
+@section('page_content')
+    <main class="nonlogin-wrapper">
+        <h1 class="login-logo"><span>Pickolor</span></h1>
+        <div class="login-wrapper">
+            <h2 class="login-title">Create new account</h2>
+            <form class="login-form" action="/register" method="POST">
+                <input class="login-field" name="name" type="text" placeholder="Username">
+                <input class="login-field" name="email" type="email" placeholder="E-mail">
+                <input class="login-field" type="password" name="password" placeholder="Password">
+                <input class="login-field" type="password" name="password_r" placeholder="Retype password">
+                <button class="login-button" type="submit">Sign up!</button>
+            </form>
+            <div class="register-link">
+                <span>Already own an account? <a href="/login">Log In!</a></span>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
+@endsection
+
+
+

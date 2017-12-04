@@ -26,7 +26,7 @@
 
 @section('page_content')
     <main class="nonlogin-wrapper">
-        <h1 class="login-logo"><img src="img/loga.png" alt="logo"><span>What Up To</span></h1>
+        <h1 class="login-logo"><span>Pickolor</span></h1>
         <div class="login-wrapper">
             <h2 class="login-title">Log in to your account</h2>
             <form class="login-form" action="engine/login.php" method="POST">
@@ -35,7 +35,7 @@
                 <button class="login-button" type="submit">Log In</button>
             </form>
             <div class="register-link">
-                <span>New to WhatUpTo? <a href="index.php?action=register">Sign in</a></span>
+                <span>Don't have an acount?<a href="/register"> Sign in</a></span>
             </div>
         </div>
     </main>

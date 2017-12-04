@@ -17,6 +17,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/menu.scss', 'public/css')
    .sass('resources/assets/sass/home.scss', 'public/css')
-   .sass('resources/assets/sass/palette.scss', 'public/css');
+   .sass('resources/assets/sass/palette.scss', 'public/css')
+   .sass('resources/assets/sass/login.scss', 'public/css');
+
 
 

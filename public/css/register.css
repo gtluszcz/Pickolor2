@@ -3,17 +3,7 @@
   src: url(/public/fonts/Menlo-Regular.ttf) format("truetype");
 }
 
-body {
-  color: black;
-}
-
-.nonlogin-wrapper {
-  margin: 0 auto;
-  width: 400px;
-  margin-top: 100px;
-}
-
-.login-logo {
+.register-logo {
   font-family: Lobster, serif;
   margin: 0 auto;
   width: 50%;
@@ -24,25 +14,29 @@ body {
   letter-spacing: 10px;
 }
 
-.login-logo span {
+.register-logo span {
   display: block;
   margin-top: 20px;
 }
 
-.login-wrapper {
+.register-logo img {
+  width: 150px;
+}
+
+.register-wrapper {
   background-color: #FFFFFF;
-  width: 100%;
+  width: 50%;
   max-width: 400px;
   margin: 30px auto;
-  border-radius: 10px;
+  border-radius: 5px;
   padding-top: 20px;
 }
 
-.login-form {
+.register-form {
   margin: 20px 40px;
 }
 
-.login-field {
+.register-field {
   border-radius: 5px;
   border: 1px solid #CBCBD2;
   display: block;
@@ -53,43 +47,41 @@ body {
           box-sizing: border-box;
 }
 
-.login-button {
+.register-button {
   border-radius: 5px;
-  background-color: #0260f7;
-  border: 0px solid #CBCBD2;
+  background-color: #48BA44;
+  border: 1px solid #CBCBD2;
   width: 100%;
   padding: 10px 5px;
   color: #FFFFFF;
   cursor: pointer;
 }
 
-.login-button:hover {
-  background-color: #013992;
+.register-button:hover {
+  background-color: #2D7437;
 }
 
-.login-title {
+.register-title {
   text-align: center;
   font-weight: normal;
-  color: #474747;
+  color: #48BA44;
   font-size: 2em;
-  margin: 0;
-  padding: 20px;
+  margin-bottom: 20px;
 }
 
-.register-link {
+.login-link {
   text-align: center;
   border-top: 1px solid #DDDDDD;
   padding: 20px 0;
   font-size: 1.3em;
 }
 
-.register-link a {
+.login-link a {
   text-decoration: none;
-  color: #474747;
-  font-weight: 700;
+  color: #48BA44;
 }
 
-.register-link a:hover {
-  text-decoration: none;
+.login-link a:hover {
+  text-decoration: underline;
 }
 

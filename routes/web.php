@@ -13,13 +13,11 @@
 
 Route::get('/', function () {
     return view('home');
-});
-Route::get('login', function () {
-    return view('login');
-});
-Route::get('register', function () {
-    return view('register');
-});
+})->name('home');
 Route::get('palette', function () {
     return view('palette');
 });
+Route::get('register', 'RegisterController@create');
+Route::post('register', 'RegisterController@store');
+
+Route::get('login', 'SessionsController@create');

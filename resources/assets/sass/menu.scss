@@ -1,14 +1,14 @@
+@import "variables";
+
 *{
   margin: 0px;
   padding: 0px;
 }
-@font-face {
-  font-family: "Montserrat-Regular";
-  src: url(/Users/gtluszcz/Documents/GT/programowanie/pickolor2/public/fonts/Menlo-Regular.ttf) format("truetype");
-}
+
 body{
   display: flex;
-  background-image: linear-gradient(rgb(43, 49, 58) 0%, rgb(17, 17, 17) 100%); color: rgb(255, 255, 255);
+  background-image: $main-background;
+  color: rgb(255, 255, 255);
   transition:  background-image 1s ease-in-out;
   -webkit-transition:  background-image 1s ease-in-out;
   color: white;

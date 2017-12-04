@@ -11,6 +11,7 @@
     <link type="text/css" rel="stylesheet" href="css/external/wheelcolorpicker.css">
 
     <!--my css-->
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/home.css">
 @endsection
@@ -34,7 +35,16 @@
             <div class="welcome-title">Color picker for You!</div>
             <p class="welcome-text">Pickolor is a higly intuitive color picker designed especialy for developers. Discover it's magical powers and sign up now...</p>
         </div>
-        <div class="login-form"></div>
+        <div class="login-form">
+            <h2 class="login-title">Create new account</h2>
+            <form class="" action="/register" method="POST">
+                <input class="login-field" name="name" type="text" placeholder="Username">
+                <input class="login-field" name="email" type="email" placeholder="E-mail">
+                <input class="login-field" type="password" name="password" placeholder="Password">
+                <input class="login-field" type="password" name="password_r" placeholder="Retype password">
+                <button class="login-button" type="submit">Sign up!</button>
+            </form>
+        </div>
     </div>
 @endsection
 

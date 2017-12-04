@@ -1,19 +1,19 @@
+@font-face {
+  font-family: "Menlo";
+  src: url(/public/fonts/Menlo-Regular.ttf) format("truetype");
+}
+
 * {
   margin: 0px;
   padding: 0px;
-}
-
-@font-face {
-  font-family: "Montserrat-Regular";
-  src: url(/fonts/Menlo-Regular.ttf?9f94dc20bb2a09c15241d3a880b7ad01) format("truetype");
 }
 
 body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#2b313a), to(#111111));
-  background-image: linear-gradient(#2b313a 0%, #111111 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#6400a8), to(#013992));
+  background-image: linear-gradient(#6400a8 0%, #013992 100%);
   color: white;
   transition: background-image 1s ease-in-out;
   -webkit-transition: background-image 1s ease-in-out;

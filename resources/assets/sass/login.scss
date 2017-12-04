@@ -1,18 +1,13 @@
-@font-face {
-  font-family: "Menlo";
-  src: url(/public/fonts/Menlo-Regular.ttf) format("truetype");
-}
+// Variables
+@import "variables";
 
-body {
-  color: black;
-}
+body{color: black;}
 
-.nonlogin-wrapper {
+.nonlogin-wrapper{
   margin: 0 auto;
   width: 400px;
   margin-top: 100px;
 }
-
 .login-logo {
   font-family: Lobster, serif;
   margin: 0 auto;
@@ -28,6 +23,7 @@ body {
   display: block;
   margin-top: 20px;
 }
+
 
 .login-wrapper {
   background-color: #FFFFFF;
@@ -49,13 +45,12 @@ body {
   width: 100%;
   margin-bottom: 20px;
   padding: 10px 5px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .login-button {
   border-radius: 5px;
-  background-color: #0260f7;
+  background-color: $block-background;
   border: 0px solid #CBCBD2;
   width: 100%;
   padding: 10px 5px;
@@ -64,16 +59,16 @@ body {
 }
 
 .login-button:hover {
-  background-color: #013992;
+  background-color: $block-background-dark;
 }
 
 .login-title {
   text-align: center;
   font-weight: normal;
-  color: #474747;
+  color: $text-main;
   font-size: 2em;
   margin: 0;
-  padding: 20px;
+  padding:20px;
 }
 
 .register-link {
@@ -85,11 +80,10 @@ body {
 
 .register-link a {
   text-decoration: none;
-  color: #474747;
+  color: $text-main;
   font-weight: 700;
 }
 
 .register-link a:hover {
   text-decoration: none;
 }
-
