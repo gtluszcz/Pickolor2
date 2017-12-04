@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 class SessionsControler extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest',['except'=>'destroy']);
+    }
+
     public function create(){
-        if (Auth::check()){
-            return redirect()->home();
-        }
         return view("login");
     }
 
