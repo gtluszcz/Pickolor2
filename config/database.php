@@ -6,6 +6,7 @@ $username = $url["user"];
 $password = $url["pass"];
 $database = substr($url["path"], 1);
 
+echo $url+"\n";
 echo $host+"\n";
 echo $username+"\n";
 echo $password+"\n";
