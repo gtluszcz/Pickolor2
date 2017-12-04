@@ -33,7 +33,7 @@
     <div class="start">
         <div class="welcome">
             <div class="welcome-title">Color picker for You!</div>
-            <p class="welcome-text">Pickolor is a higly intuitive color picker designed especialy for developers. Discover it's magical powers and sign up now...</p>
+            <p class="welcome-text">Pickolor is a highly intuitive color picker designed especialy for developers. Discover it's magical powers and sign up now...</p>
         </div>
         @if (!Auth::check())
         <div class="login-form">

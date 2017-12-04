@@ -26,7 +26,7 @@
 
 @section('page_content')
     <main class="nonlogin-wrapper">
-        <h1 class="login-logo"><span>Pickolor</span></h1>
+        <h1 class="login-logo"><a href="/">Pickolor</a></h1>
         <div class="login-wrapper">
             <h2 class="login-title">Log in to your account</h2>
             <form class="login-form" action="/login" method="POST">
