@@ -7,7 +7,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   max-width: 1000px;
-  argin: 0 auto;
+  margin: 0 auto;
   margin-top: 100px;
   padding: 0 20px;
 }

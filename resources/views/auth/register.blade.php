@@ -1,6 +1,4 @@
-
-
-@extends('layouts/form')
+@extends('../layouts/form')
 
 
 
@@ -28,17 +26,23 @@
     <main class="nonlogin-wrapper">
         <h1 class="login-logo"><a href="/">Pickolor</a></h1>
         <div class="login-wrapper">
-            <h2 class="login-title">Log in to your account</h2>
-            <form class="login-form" action="/login" method="POST">
+            <h2 class="login-title">Create new account</h2>
+            <form class="login-form" action="/register" method="POST">
+
                 {!! csrf_field() !!}
-                <input class="login-field" name="name" type="text" placeholder="Login">
-                <input class="login-field" name="password" type="password" placeholder="Password">
-                <button class="login-button" type="submit">Log In</button>
+                <input class="login-field" name="name" type="text" placeholder="Username">
+                <input class="login-field" name="email" type="email" placeholder="E-mail">
+                <input class="login-field" type="password" name="password" placeholder="Password">
+                <input class="login-field" type="password" name="password_confirmation" placeholder="Retype password">
+                <button class="login-button" type="submit">Sign up!</button>
             </form>
-            @include("assets/error")
+            @include("../assets/error")
             <div class="register-link">
-                <span>Don't have an acount?<a href="/register"> Sign up</a></span>
+                <span>Already own an account? <a href="/login">Log In!</a></span>
             </div>
         </div>
     </main>
 @endsection
+
+
+

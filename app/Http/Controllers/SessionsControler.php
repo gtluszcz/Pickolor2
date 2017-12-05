@@ -12,7 +12,7 @@ class SessionsControler extends Controller
     }
 
     public function create(){
-        return view("login");
+        return view("auth/login");
     }
 
     public function store(){
