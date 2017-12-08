@@ -1,0 +1,102 @@
+@import "variables";
+
+p, .glyphicon{
+  margin: 0px;
+}
+
+.palettes-tabs{
+  margin: 30px auto;
+  display: flex;
+  border: 2px solid floralwhite;
+  width: 300px;
+  line-height: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tab-link{
+  flex: 1;
+  text-align: center;
+}
+.active-tab{
+  color: rgb(1, 57, 146);
+  background-color: floralwhite;
+}
+.palettes-wrapper{
+  background-color: transparent;
+  display: flex;
+  font-family: Menlo;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: space-around;
+  //border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  margin: 0 10px;
+
+
+}
+.single-palett-wrapper{
+  width: 200px;
+  background-color: transparent;
+  border-radius: 6px;
+  margin:20px;
+}
+.palette-colors{
+  background-color: green;
+  border-radius: 6px;
+  height: 150px;
+  align-content: stretch;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.3);
+}
+.palette-grades{
+  display: flex;
+  font-family: Menlo;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 5px;
+  height: 30px;
+  color: white;
+}
+.color-title{
+  line-height: 30px;
+  display: inline-block;
+  font-size: 12px;
+  padding: 0 10px;
+}
+.color{
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.palette-title{
+  line-height: 30px;
+  text-align: left;
+  font-size: 18px;
+  padding: 0 5px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+}
+
+.views, .likes{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.views-icon, .likes-icon{
+  font-size: 16px;
+}
+.views-icon{
+  margin: 0 0px 0 0;
+}
+.likes-icon{
+  margin: 0 0 0 7px;
+}

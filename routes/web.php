@@ -1,6 +1,7 @@
 <?php
 
 /*
+ *
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -21,6 +22,11 @@ Route::get('/palette', function () {
 Route::get('/register', 'RegistrationControler@create');
 Route::post('/register', 'RegistrationControler@store');
 
-Route::get('/login', 'SessionsControler@create');
+Route::get('/login', 'SessionsControler@create')->name('login');;
 Route::post('/login', 'SessionsControler@store');
+
 Route::get('/logout', 'SessionsControler@destroy');
+
+Route::get('/palettes/all', 'PaletteController@showall');
+Route::get('/palettes/my', 'PaletteController@showmy');
+Route::get('/palettes/favourite', 'PaletteController@showmyfavourite');

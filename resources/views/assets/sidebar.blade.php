@@ -10,7 +10,7 @@
         <div class="sidemenu-bar thick">{{Auth::user()->name}}</div>
         <div class="sidemenu-bar"><a href="/logout">logout</a></div>
     @endif
-    <div class="sidemenu-bar side-menu-link onlymobile"><a href="/palette" >Palets</a></div>
+    <div class="sidemenu-bar side-menu-link onlymobile"><a href="/palettes/all" >Palets</a></div>
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="#" >Colors</a></div>
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="#" >Gradients</a></div>
 </div>
