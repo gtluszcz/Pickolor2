@@ -152,7 +152,6 @@ a, a:hover{
   display: block;
   padding: 0 10px;
   background-color: transparent;
-  flex-grow: 1;
 }
 .logo{
   font-size: 25px;
@@ -343,6 +342,7 @@ a, a:hover{
   .logo{
     margin-left: -5px;
   }
+
   .container{
     width:100vw;
   }
@@ -350,7 +350,7 @@ a, a:hover{
 }
 @media (max-width: 374px) {
 
-  .searchbar{
+  .searchinput,.searchbar{
     flex: 1;
   }
 
