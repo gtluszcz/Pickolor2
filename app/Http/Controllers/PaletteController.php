@@ -31,7 +31,8 @@ class PaletteController extends Controller
 
     public function showmyfavourite()
     {
-        $palettes = App\Palette::all();
+        $user = App\User::find(auth()->id());
+        $palettes = $user->fav_palettes()->get();
 
         return view('showpalettes', compact('palettes'));
     }

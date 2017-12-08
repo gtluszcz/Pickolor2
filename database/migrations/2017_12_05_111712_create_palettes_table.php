@@ -26,6 +26,14 @@ class CreatePalettesTable extends Migration
             $table->integer('likes');
             $table->timestamps();
         });
+
+        Schema::create('palette_user', function (Blueprint $table) {
+
+            $table->integer('user_id');
+            $table->integer('palette_id');
+            $table->primary(['user_id','palette_id']);
+
+        });
     }
 
     /**
@@ -36,5 +44,6 @@ class CreatePalettesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('palettes');
+        Schema::dropIfExists('palette_user');
     }
 }
