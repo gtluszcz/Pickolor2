@@ -27,6 +27,30 @@
   cursor: pointer;
   transition: 0.3s all ease;
 }
+.login-to-save{
+  position: absolute;
+
+  bottom: calc(50% - 10.5px);
+  right: 200%;
+
+  font-size: 16px;
+  height: 25px;
+  width: 230px;
+  border: 1px solid;
+  line-height: 20px;
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 12.5px;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+  opacity: 0;
+  font-family: "Helvetica Neue",Helvetica,
+  Arial,
+  sans-serif;
+}
+.glyphicon-floppy-saved:hover > .login-to-save{
+  opacity: 1;
+}
 .edit, .likes, .views{
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -319,6 +343,10 @@ div.jQWCP-wWheel:hover{
 
     font-size: 40px;
 
+  }
+  .login-to-save{
+    bottom: 90%;
+    right: -90px;
   }
 }
 

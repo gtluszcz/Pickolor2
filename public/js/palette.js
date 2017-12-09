@@ -270,7 +270,7 @@ $(document).ready(function () {
         $('.creator').addClass('hidden');
         $('.newcolor').removeClass('sort-hidden');
         $('.move').removeClass('sort-hidden');
-        $('.save').removeClass('sort-hidden');
+        $('.glyphicon-floppy-saved').removeClass('sort-hidden');
         $('.glyphicon-trash').removeClass('sort-hidden');
         $('.color-title').attr("readonly", false);
         $('.palete-title').attr("readonly", false);

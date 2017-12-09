@@ -28,13 +28,13 @@
 
 
 @section('page_content')
-    @if(auth()->check())
+
     <div class="palettes-tabs">
         <a href="/palettes/all" class="tab-link
             @if (Request::is('*/all'))
                             active-tab
             @endif">All</a>
-
+            @if(auth()->check())
             <a href="/palettes/my" class="tab-link
                 @if (Request::is('*/my'))
                                 active-tab
@@ -43,8 +43,8 @@
                 @if (Request::is('*/favourite'))
                                 active-tab
                 @endif">Favorite</a>
+            @endif
     </div>
-    @endif
     <div class="palettes-wrapper">
 
         @foreach($palettes as $palette)
@@ -88,4 +88,6 @@
 
         @endforeach
     </div>
+
+    {{ $palettes->links('vendor.pagination.default') }}
 @endsection

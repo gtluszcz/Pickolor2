@@ -49,7 +49,7 @@
 
 
     ?>
-    
+
 
     <form name="paletaForm" method="post" href="/palette/{{$palette->id}}">
     {!! csrf_field() !!}
@@ -62,8 +62,12 @@
         <div class="controls">
             <a class="creator" href="#">creator: {{$palette->createdby->name}}</a>
             <div class="newcolor sort-hidden"><span class="glyphicon glyphicon-plus"></span><div>Add new color</div></div>
-            <div>
+            <div style="max-width: 130px;">
+                @if(auth()->check())
                 <span class="save sort-hidden glyphicon glyphicon-floppy-saved" type="submit"></span>
+                @else
+                    <span class="sort-hidden glyphicon glyphicon-floppy-saved cantAddNewColor" type="submit"><span class="login-to-save">Sign in to save your palettes</span></span>
+                @endif
                 <span class="move sort-hidden glyphicon glyphicon-align-justify"></span>
             </div>
             <div class="edit"><span class="glyphicon glyphicon-pencil"></span><div>Edit</div></div>
