@@ -48,40 +48,43 @@
     <div class="palettes-wrapper">
 
         @foreach($palettes as $palette)
-        <div class="single-palett-wrapper">
-            <div class="palette-title"><p>{{$palette->title}}</p><span class="glyphicon glyphicon-heart"></span></div>
-            <div class="palette-colors">
-                @if ($palette->color1 != null)
-                <div class="color" style="background-color: {{$palette->color1}}">
-                    <div class="color-title">{{$palette->color1}}</div>
+            <div class="single-palett-wrapper">
+                <a href="/palette/{{$palette->id}}">
+                <div class="palette-title"><p>{{$palette->title}}</p><span class="glyphicon glyphicon-heart"></span></div>
+                <div class="palette-colors">
+                    @if ($palette->color1 != null)
+                    <div class="color" style="background-color: {{$palette->color1}}">
+                        <div class="color-title">{{$palette->color1}}</div>
+                    </div>
+                    @endif
+                    @if ($palette->color2 != null)
+                        <div class="color" style="background-color: {{$palette->color2}}">
+                            <div class="color-title">{{$palette->color2}}</div>
+                        </div>
+                    @endif
+                    @if ($palette->color3 != null)
+                        <div class="color" style="background-color: {{$palette->color3}}">
+                            <div class="color-title">{{$palette->color3}}</div>
+                        </div>
+                    @endif
+                    @if ($palette->color4 != null)
+                        <div class="color" style="background-color: {{$palette->color4}}">
+                            <div class="color-title">{{$palette->color4}}</div>
+                        </div>
+                    @endif
+                    @if ($palette->color5 != null)
+                        <div class="color" style="background-color: {{$palette->color5}}">
+                            <div class="color-title">{{$palette->color5}}</div>
+                        </div>
+                    @endif
                 </div>
-                @endif
-                @if ($palette->color2 != null)
-                    <div class="color" style="background-color: {{$palette->color2}}">
-                        <div class="color-title">{{$palette->color2}}</div>
-                    </div>
-                @endif
-                @if ($palette->color3 != null)
-                    <div class="color" style="background-color: {{$palette->color3}}">
-                        <div class="color-title">{{$palette->color3}}</div>
-                    </div>
-                @endif
-                @if ($palette->color4 != null)
-                    <div class="color" style="background-color: {{$palette->color4}}">
-                        <div class="color-title">{{$palette->color4}}</div>
-                    </div>
-                @endif
-                @if ($palette->color5 != null)
-                    <div class="color" style="background-color: {{$palette->color5}}">
-                        <div class="color-title">{{$palette->color5}}</div>
-                    </div>
-                @endif
+                <div class="palette-grades">
+                    <div class="views"><span class="glyphicon glyphicon-eye-open views-icon"></span><div>{{$palette->views}}</div></div>
+                    <div class="likes"><div>{{$palette->likes}}</div><span class="glyphicon glyphicon-heart likes-icon"></span></div>
+                </div>
+                </a>
             </div>
-            <div class="palette-grades">
-                <div class="views"><span class="glyphicon glyphicon-eye-open views-icon"></span><div>{{$palette->views}}</div></div>
-                <div class="likes"><div>{{$palette->likes}}</div><span class="glyphicon glyphicon-heart likes-icon"></span></div>
-            </div>
-        </div>
+
 
         @endforeach
     </div>

@@ -30,3 +30,9 @@ Route::get('/logout', 'SessionsControler@destroy');
 Route::get('/palettes/all', 'PaletteController@showall');
 Route::get('/palettes/my', 'PaletteController@showmy');
 Route::get('/palettes/favourite', 'PaletteController@showmyfavourite');
+
+Route::get('/palette/{palette}', 'PaletteController@editexisting');
+
+Route::post('/palette/{palette}','PaletteController@save');
+
+

@@ -288,7 +288,7 @@ $(document).ready(function() {
             //append new html
             var mySecondDiv=$('<div class="color">\n' +
                 '                <div class="color-bar">\n' +
-                '                    <input class="color-title" name="color1" type="text" maxlength="7"  value="#232323" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>\n' +
+                '                    <input class="color-title" name="color1" type="text" maxlength="7"  value="#232323" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false">\n' +
                 '                    <div class="icons">\n' +
                 '                        <span class="glyphicon glyphicon-heart"></span>\n' +
                 '                        <span class="glyphicon glyphicon-trash sort-hidden"></span>\n' +

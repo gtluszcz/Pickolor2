@@ -27,6 +27,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function createdpalettes(){
+        return $this->hasMany(Palette::class);
+    }
+
 
     public function fav_palettes(){
         return $this->belongsToMany(Palette::class);
