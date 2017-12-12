@@ -17,7 +17,7 @@ class PaletteController extends Controller
 
     public function showall()
     {
-        $palettes = App\Palette::paginate(1);
+        $palettes = App\Palette::paginate(6);
 
         return view('showpalettes', compact('palettes'));
     }
