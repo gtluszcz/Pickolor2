@@ -17,14 +17,14 @@ class PaletteController extends Controller
 
     public function showall()
     {
-        $palettes = App\Palette::simplePaginate(6);
+        $palettes = App\Palette::paginate(1);
 
         return view('showpalettes', compact('palettes'));
     }
 
     public function showmy()
     {
-        $palettes = App\Palette::where('user_id',"=",auth()->id())->simplePaginate(6);
+        $palettes = App\Palette::where('user_id',"=",auth()->id())->paginate(6);
 
 
         return view('showpalettes', compact('palettes'));
@@ -33,7 +33,7 @@ class PaletteController extends Controller
     public function showmyfavourite()
     {
         $user = App\User::find(auth()->id());
-        $palettes = $user->fav_palettes()->simplePaginate(6);
+        $palettes = $user->fav_palettes()->paginate(6);
 
         return view('showpalettes', compact('palettes'));
     }

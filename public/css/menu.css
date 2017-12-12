@@ -363,7 +363,7 @@ main-menu-link:focus {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 370px) {
   .searchinput,
   .searchbar {
     -webkit-box-flex: 1;

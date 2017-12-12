@@ -5,17 +5,122 @@ p, .glyphicon{
 }
 
 .palettes-tabs{
-  margin: 30px auto;
   display: flex;
   border: 2px solid floralwhite;
-  width: 300px;
-  line-height: 30px;
+  line-height: 25px;
   border-radius: 10px;
   overflow: hidden;
+  margin-top: 30px;
 }
 .tab-link{
   flex: 1;
   text-align: center;
+  width: 100px;
+}
+.addpalette{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14.5px;
+  height: 29px;
+  margin-top: 30px;
+}
+.addpalette-title{
+  padding: 0 10px;
+  font-size: 18px;
+}
+.controls-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  padding:  0 30px;
+  margin-bottom: 30px;
+  align-content: space-between;
+  align-items: center;
+}
+.page-controls{
+  display: flex;
+  //border: 2px solid floralwhite;
+  line-height: 25px;
+  border-radius: 10px;
+  overflow: hidden;
+  justify-content: center;
+  flex-shrink: 1;
+
+}
+.page-wrapper{
+  margin: 40px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  padding:  0 30px;
+  align-items: center;
+}
+.page-link-normal{
+  margin: 0 10px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  line-height: 25px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.page-controls .tab-link{
+  flex: none;
+  flex-grow: 1;
+}
+.glyphicon-chevron-left, .glyphicon-chevron-right{
+  display: inline-block;
+  line-height: 25px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.glyphicon-chevron-right{
+
+}
+.glyphicon-chevron-left{
+
+}
+.disabled{
+  opacity: 0.3;
+  display: none;
+}
+.order{
+  display: inline-block;
+  text-align: left;
+  line-height: 29px;
+  padding:  0 10px;
+  flex-shrink: 0;
+  height: 29px;
+  align-self: center;
+  margin-top: 30px;
+
+
+}
+.plus{
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background-color: floralwhite;
+  color: #013992;
+  line-height: 24px;
+  text-align: center;
+  font-size: 25px;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+.glyphicon-plus{
+  display: block;
+  position: relative;
+  left: 1px;
+  bottom: 4px;
+  margin: 0 auto;
+
 }
 
 .active-tab, .tab-link:hover{
@@ -100,4 +205,8 @@ p, .glyphicon{
 }
 .likes-icon{
   margin: 0 0 0 7px;
+}
+
+@media (max-width: 1200px) {
+
 }

@@ -29,21 +29,29 @@
 
 @section('page_content')
 
-    <div class="palettes-tabs">
-        <a href="/palettes/all" class="tab-link
-            @if (Request::is('*/all'))
-                            active-tab
-            @endif">All</a>
-            @if(auth()->check())
-            <a href="/palettes/my" class="tab-link
-                @if (Request::is('*/my'))
-                                active-tab
-                @endif">My</a>
-            <a href="/palettes/favourite" class="tab-link
-                @if (Request::is('*/favourite'))
-                                active-tab
-                @endif">Favorite</a>
-            @endif
+    <div class="controls-wrapper">
+        <div class="addpalette">
+            <div class="plus">+</div>
+            <div class="addpalette-title">Add palette</div>
+        </div>
+            <div class="order">order by: likes</div>
+            <div class="palettes-tabs">
+                <a href="/palettes/all" class="tab-link
+                    @if (Request::is('*/all'))
+                                    active-tab
+                    @endif">All</a>
+                    @if(auth()->check())
+                    <a href="/palettes/my" class="tab-link
+                        @if (Request::is('*/my'))
+                                        active-tab
+                        @endif">My</a>
+                    <a href="/palettes/favourite" class="tab-link
+                        @if (Request::is('*/favourite'))
+                                        active-tab
+                        @endif">Favorite</a>
+                    @endif
+            </div>
+
     </div>
     <div class="palettes-wrapper">
 
