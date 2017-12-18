@@ -66,14 +66,17 @@
                     <input class="hidden id" value="{{$palette->id}}">
 
                     <div class="palette-title">
+                        
                         @if (auth()->check() and $palette->createdby->id == auth()->id())
                             <span class="trash glyphicon glyphicon-trash"></span>
                         @endif
 
-                        @if (auth()->check() and auth()->user()->has_fav_palette($palette))
-                            <span class="heart glyphicon glyphicon-heart"></span>
-                        @else
-                            <span class="heart glyphicon glyphicon-heart-empty"></span>
+                        @if(auth()->check())
+                            @if (auth()->user()->has_fav_palette($palette))
+                                <span class="heart glyphicon glyphicon-heart"></span>
+                            @else
+                                <span class="heart glyphicon glyphicon-heart-empty"></span>
+                            @endif
                         @endif
                     </div>
 
