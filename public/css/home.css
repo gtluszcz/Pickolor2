@@ -8,7 +8,7 @@
           flex-direction: row;
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 0 20px;
 }
 
@@ -26,6 +26,66 @@
 .welcome-text {
   font-size: 20px;
   font-family: "Montserrat-Regular", Tahoma;
+}
+
+.plus {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: floralwhite;
+  color: #013992;
+  line-height: 40px;
+  text-align: center;
+  font-size: 40px;
+  vertical-align: middle;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.addpalette {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 25px;
+  height: 50px;
+  margin: 50px auto;
+  width: 400px;
+}
+
+.addpalette-title {
+  padding: 0 30px;
+  font-size: 18px;
+  line-height: 50px;
+  border-radius: 25px;
+  height: 100%;
+  z-index: 1;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+
+.addpalette-title:hover {
+  background-color: floralwhite;
+  color: #013992;
+}
+
+a.addpalette-title.left {
+  margin-right: -45px;
+  padding-right: 55px;
+}
+
+a.addpalette-title.right {
+  margin-left: -45px;
+  padding-left: 55px;
 }
 
 .login-form {

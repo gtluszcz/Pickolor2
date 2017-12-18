@@ -15,9 +15,7 @@
 Route::get('/', function () {
     return view('home');
 })->name('home');
-Route::get('/palette', function () {
-    return view('palette');
-});
+
 
 Route::get('/register', 'RegistrationControler@create');
 Route::post('/register', 'RegistrationControler@store');
@@ -32,7 +30,15 @@ Route::get('/palettes/my', 'PaletteController@showmy');
 Route::get('/palettes/favourite', 'PaletteController@showmyfavourite');
 
 Route::get('/palette/{palette}', 'PaletteController@editexisting');
+Route::delete('/palette/{palette}', 'PaletteController@deletepalette');
+
+Route::get('/palette','PaletteController@editnew');
 
 Route::post('/palette/{palette}','PaletteController@save');
+Route::post('/palette','PaletteController@savenew');
+
+Route::post('/like/{palette}','PaletteController@like_palette');
+Route::delete('/like/{palette}','PaletteController@unlike_palette');
+
 
 

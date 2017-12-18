@@ -24,16 +24,17 @@
     <script src="../js/external/jquery.ui.touch-punch.min.js"></script>
     <!--my js-->
     <script src="../js/menu.js"></script>
+    <script src="../js/allpalettes.js"></script>
 @endsection
 
 
 @section('page_content')
 
     <div class="controls-wrapper">
-        <div class="addpalette">
+        <a href="/palette" class="addpalette">
             <div class="plus">+</div>
             <div class="addpalette-title">Add palette</div>
-        </div>
+        </a>
             <div class="order">order by: likes</div>
             <div class="palettes-tabs">
                 <a href="/palettes/all" class="tab-link
@@ -58,7 +59,25 @@
         @foreach($palettes as $palette)
             <div class="single-palett-wrapper">
                 <a href="/palette/{{$palette->id}}">
-                <div class="palette-title"><p>{{$palette->title}}</p><span class="glyphicon glyphicon-heart"></span></div>
+                <div class="palette-title">
+
+                    <p>{{$palette->title}}</p>
+
+                    <input class="hidden id" value="{{$palette->id}}">
+
+                    <div class="palette-title">
+                        @if ($palette->createdby->id == auth()->id())
+                            <span class="trash glyphicon glyphicon-trash"></span>
+                        @endif
+
+                        @if (auth()->user()->has_fav_palette($palette))
+                            <span class="heart glyphicon glyphicon-heart"></span>
+                        @else
+                            <span class="heart glyphicon glyphicon-heart-empty"></span>
+                        @endif
+                    </div>
+
+                </div>
                 <div class="palette-colors">
                     @if ($palette->color1 != null)
                     <div class="color" style="background-color: {{$palette->color1}}">
@@ -88,14 +107,16 @@
                 </div>
                 <div class="palette-grades">
                     <div class="views"><span class="glyphicon glyphicon-eye-open views-icon"></span><div>{{$palette->views}}</div></div>
-                    <div class="likes"><div>{{$palette->likes}}</div><span class="glyphicon glyphicon-heart likes-icon"></span></div>
+                    <div class="likes"><div class="likes-nr">{{$palette->likes}}</div><span class="glyphicon glyphicon-heart likes-icon"></span></div>
                 </div>
                 </a>
             </div>
 
 
         @endforeach
+
     </div>
+    <meta name="_token" content="{!! csrf_token() !!}" />
 
     {{ $palettes->links('vendor.pagination.default') }}
 @endsection

@@ -35,7 +35,9 @@
 
 
 @section('page_content')
-    <?php
+
+            @if(!$new)
+            <?php
             $colors = [];
             if($palette->color1!=null) array_push($colors,$palette->color1);
             if($palette->color2!=null) array_push($colors,$palette->color2);
@@ -46,21 +48,25 @@
             $counter = 0;
             $palette->views+=1;
             $palette->save();
+            ?>
+            @endif
 
 
-    ?>
-
-
+    @if(!$new)
     <form name="paletaForm" method="post" href="/palette/{{$palette->id}}">
+    @else
+        <form name="paletaForm" method="post" href="/palette">
+    @endif
+            @if(!$new) @else @endif
     {!! csrf_field() !!}
-
+        <input name="new" type="text" value="{{$new}}" class="hidden">
         <!--Title-->
-        <input class="palete-title" name="palettetitle" type="text" value="{{$palette->title}}︎"  spellcheck="false"  readonly>
+        <input class="palete-title" name="palettetitle" type="text" value="@if(!$new){{$palette->title}} @else unnamed @endif︎"  spellcheck="false"  readonly>
 
 
         <!--palette controlling buttons-->
         <div class="controls">
-            <a class="creator" href="#">creator: {{$palette->createdby->name}}</a>
+            <a class="creator" href="#">creator: @if(!$new){{$palette->createdby->name}} @else unnamed @endif</a>
             <div class="newcolor sort-hidden"><span class="glyphicon glyphicon-plus"></span><div>Add new color</div></div>
             <div style="max-width: 130px;">
                 @if(auth()->check())
@@ -78,7 +84,7 @@
         <div class="paleta">
 
             <!--#1 COLOR-->
-
+            @if(!$new)
             @foreach($colors as $color)
                 <?php $counter+=1?>
 
@@ -152,7 +158,218 @@
                 </div>
             </div>
             @endforeach
+            @else
+                <div class="color">
+                    <div class="color-bar">
+                        <input class="color-title" name="color1" type="text" maxlength="7"  value="#274380" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
+                        <div class="icons">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            <span class="glyphicon glyphicon-trash sort-hidden"></span>
+                            <span class="glyphicon glyphicon-sort sort-hidden"></span>
+                        </div>
+                    </div>
 
+                    <div class="color-content col-lg-12">
+                        <div class="suwaki col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <div class="tabs-nav">
+                                <a target="" class="tabs-link active-tab">RGB</a>
+                                <a target="" class="tabs-link">HSL</a>
+                            </div>
+                            <div id="" class="link">
+                                <div class="property">
+                                    R:   <div class="rgb-r value">255</div>
+                                    <div class="rgb-r-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    G:  <div class="rgb-g value">255</div>
+                                    <div class="rgb-g-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    B: <div class="rgb-b value">255</div>
+                                    <div class="rgb-b-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="" class="link hidden">
+                                <div class="property">
+                                    H:<div class="hsl-h value">360</div>
+                                    <div class="hsl-h-slider slider hue-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    S:<div class="hsl-s value">100%</div>
+                                    <div class="hsl-s-slider slider percent-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    L:<div class="hsl-l value">100%</div>
+                                    <div class="hsl-l-slider slider percent-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="picker col-lg-5 col-md-5 col-sm-12 col-xs-12 disabled">
+                            <input class="wheel-picker disabled">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="color">
+                    <div class="color-bar">
+                        <input class="color-title" name="color2" type="text" maxlength="7"  value="#37B8A9" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
+                        <div class="icons">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            <span class="glyphicon glyphicon-trash sort-hidden"></span>
+                            <span class="glyphicon glyphicon-sort sort-hidden"></span>
+                        </div>
+                    </div>
+
+                    <div class="color-content col-lg-12">
+                        <div class="suwaki col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <div class="tabs-nav">
+                                <a target="" class="tabs-link active-tab">RGB</a>
+                                <a target="" class="tabs-link">HSL</a>
+                            </div>
+                            <div id="" class="link">
+                                <div class="property">
+                                    R:   <div class="rgb-r value">255</div>
+                                    <div class="rgb-r-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    G:  <div class="rgb-g value">255</div>
+                                    <div class="rgb-g-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    B: <div class="rgb-b value">255</div>
+                                    <div class="rgb-b-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="" class="link hidden">
+                                <div class="property">
+                                    H:<div class="hsl-h value">360</div>
+                                    <div class="hsl-h-slider slider hue-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    S:<div class="hsl-s value">100%</div>
+                                    <div class="hsl-s-slider slider percent-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    L:<div class="hsl-l value">100%</div>
+                                    <div class="hsl-l-slider slider percent-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="picker col-lg-5 col-md-5 col-sm-12 col-xs-12 disabled">
+                            <input class="wheel-picker disabled">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="color">
+                    <div class="color-bar">
+                        <input class="color-title" name="color3" type="text" maxlength="7"  value="#ED390C" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
+                        <div class="icons">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            <span class="glyphicon glyphicon-trash sort-hidden"></span>
+                            <span class="glyphicon glyphicon-sort sort-hidden"></span>
+                        </div>
+                    </div>
+
+                    <div class="color-content col-lg-12">
+                        <div class="suwaki col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <div class="tabs-nav">
+                                <a target="" class="tabs-link active-tab">RGB</a>
+                                <a target="" class="tabs-link">HSL</a>
+                            </div>
+                            <div id="" class="link">
+                                <div class="property">
+                                    R:   <div class="rgb-r value">255</div>
+                                    <div class="rgb-r-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    G:  <div class="rgb-g value">255</div>
+                                    <div class="rgb-g-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    B: <div class="rgb-b value">255</div>
+                                    <div class="rgb-b-slider rgb-slider slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="" class="link hidden">
+                                <div class="property">
+                                    H:<div class="hsl-h value">360</div>
+                                    <div class="hsl-h-slider slider hue-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    S:<div class="hsl-s value">100%</div>
+                                    <div class="hsl-s-slider slider percent-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                                <div class="property">
+                                    L:<div class="hsl-l value">100%</div>
+                                    <div class="hsl-l-slider slider percent-slider">
+                                        <div class="slider-handle-wraper"><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="picker col-lg-5 col-md-5 col-sm-12 col-xs-12 disabled">
+                            <input class="wheel-picker disabled">
+                        </div>
+
+                    </div>
+                </div>
+
+            @endif
 
 
 
@@ -162,8 +379,8 @@
 
     <!--below palette controlling buttons-->
     <div class="controls">
-        <div class="views"><span class="glyphicon glyphicon-eye-open"></span><div>{{$palette->views}}</div></div>
-        <div class="likes"><span class="glyphicon glyphicon-heart"></span><div>{{$palette->likes}}</div></div>
+        <div class="views"><span class="glyphicon glyphicon-eye-open"></span><div>@if(!$new){{$palette->views}} @else 0 @endif</div></div>
+        <div class="likes"><span class="glyphicon glyphicon-heart"></span><div>@if(!$new){{$palette->likes}} @else 0 @endif</div></div>
     </div>
 
 

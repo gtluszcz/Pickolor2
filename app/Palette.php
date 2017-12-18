@@ -12,4 +12,8 @@ class Palette extends Model
     protected $fillable = [
         'title', 'color1', 'color2', 'color3', 'color4', 'color5'
     ];
+
+    public function fav_users(){
+        return $this->belongsToMany(User::class);
+    }
 }

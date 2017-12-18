@@ -12,8 +12,13 @@ class PaletteController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('showall','editexisting');
+        $this->middleware('auth')->except('showall','editexisting','editnew');
     }
+
+
+    /// ALL PALETTES
+
+
 
     public function showall()
     {
@@ -38,9 +43,36 @@ class PaletteController extends Controller
         return view('showpalettes', compact('palettes'));
     }
 
+    public function like_palette(App\Palette $palette){
+        $palette->likes+=1;
+        $palette->save();
+        auth()->user()->fav_palettes()->attach($palette);
+    }
+
+    public function unlike_palette(App\Palette $palette){
+        $palette->likes-=1;
+        $palette->save();
+        auth()->user()->fav_palettes()->detach($palette);
+
+    }
+    public function deletepalette(App\Palette $palette){
+        $palette->delete();
+    }
+
+
+
+    ////PALETTE
+
+
     public function editexisting(App\Palette $palette)
     {
-        return view('palette', compact('palette'));
+        $new = false;
+        return view('palette', compact('palette','new'));
+    }
+    public function editnew()
+    {
+        $new = true;
+        return view('palette', compact('new'));
     }
 
     public function save(App\Palette $palette, Request $request)
@@ -72,6 +104,27 @@ class PaletteController extends Controller
             $palette->save();
 
         }
-        return view('palette', compact('palette'));
+        $new = false;
+        return view('palette', compact('palette','new'));
+    }
+
+    public function savenew(Request $request)
+    {
+
+        $palette = new App\Palette();
+        $palette->title = $request->input('palettetitle', 'unnamed');
+        $palette->user_id = auth()->id();
+        $palette->color1 = $request->input('color1', "");
+        $palette->color2 = $request->input('color2', "");
+        $palette->color3 = $request->input('color3', "");
+        $palette->color4 = $request->input('color4', "");
+        $palette->color5 = $request->input('color5', "");
+        $palette->views = 0;
+        $palette->likes = 0;
+        $palette->setUpdatedAt(now());
+        $palette->setCreatedAt(now());
+        $palette->save();
+
+        return redirect("palette/$palette->id");
     }
 }

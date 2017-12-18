@@ -35,4 +35,17 @@ class User extends Authenticatable
     public function fav_palettes(){
         return $this->belongsToMany(Palette::class);
     }
+
+    public function has_fav_palette(Palette $palette)
+    {
+        foreach ($this->fav_palettes()->get() as $pal)
+        {
+            if ($pal->id == $palette->id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

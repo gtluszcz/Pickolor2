@@ -84,6 +84,26 @@ $(document).ready(function () {
         autoResize: false
 
     });
+    var editable = false;
+
+    $('.paleta').ready(function () {
+        if (window.location.pathname == '/palette') {
+            editable = true;
+            $('.edit').addClass('hidden');
+            $('.creator').addClass('hidden');
+            $('.newcolor').removeClass('sort-hidden');
+            $('.move').removeClass('sort-hidden');
+            $('.glyphicon-floppy-saved').removeClass('sort-hidden');
+            $('.glyphicon-trash').removeClass('sort-hidden');
+            $('.color-title').attr("readonly", false);
+            $('.palete-title').attr("readonly", false);
+            $('.palete-title').focus();
+            $(".slider").slider("enable");
+            $('.picker').removeClass('disabled');
+            $('.likes').addClass('hidden');
+            $('.views').addClass('hidden');
+        }
+    });
 
     ///TABS
     ///////
@@ -262,7 +282,7 @@ $(document).ready(function () {
         $('.color').removeClass('active');
         $(this).addClass('active');
     });
-    var editable = false;
+
     //Edit palette
     $('.edit').click(function () {
         editable = true;
