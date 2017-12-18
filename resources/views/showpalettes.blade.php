@@ -66,7 +66,7 @@
                     <input class="hidden id" value="{{$palette->id}}">
 
                     <div class="palette-title">
-                        
+
                         @if (auth()->check() and $palette->createdby->id == auth()->id())
                             <span class="trash glyphicon glyphicon-trash"></span>
                         @endif
