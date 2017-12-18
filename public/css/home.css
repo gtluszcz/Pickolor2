@@ -97,8 +97,8 @@
   border-radius: 25px;
   height: 100%;
   z-index: 1;
-  -webkit-transition: 0.2s all ease-in-out;
-  transition: 0.2s all ease-in-out;
+  -webkit-transition: 0s all ease-in-out;
+  transition: 0s all ease-in-out;
 }
 
 .addpalette-title:hover {
