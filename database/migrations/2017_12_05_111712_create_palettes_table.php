@@ -17,11 +17,11 @@ class CreatePalettesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('title');
-            $table->string('color1');
-            $table->string('color2');
-            $table->string('color3');
-            $table->string('color4');
-            $table->string('color5');
+            $table->integer('color1_id');
+            $table->integer('color2_id');
+            $table->integer('color3_id');
+            $table->integer('color4_id');
+            $table->integer('color5_id');
             $table->integer('views');
             $table->integer('likes');
             $table->timestamps();

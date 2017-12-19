@@ -56,6 +56,7 @@ class PaletteController extends Controller
 
     }
     public function deletepalette(App\Palette $palette){
+        $palette->fav_users()->detach();
         $palette->delete();
     }
 
@@ -79,11 +80,12 @@ class PaletteController extends Controller
     {
         if(auth()->id()==$palette->createdby->id){
             $palette->title = $request->input('palettetitle', 'unnamed');
-            $palette->color1 = $request->input('color1', "");
-            $palette->color2 = $request->input('color2', "");
-            $palette->color3 = $request->input('color3', "");
-            $palette->color4 = $request->input('color4', "");
-            $palette->color5 = $request->input('color5', "");
+            $colors[0] = $request->input('color1', "");
+            $colors[1] = $request->input('color2', "");
+            $colors[2] = $request->input('color3', "");
+            $colors[3] = $request->input('color4', "");
+            $colors[4] = $request->input('color5', "");
+            $palette->fillcolors($colors);
             $palette->setUpdatedAt(now());
             $palette->save();
 
@@ -92,11 +94,12 @@ class PaletteController extends Controller
             $palette = new App\Palette();
             $palette->title = $request->input('palettetitle', 'unnamed');
             $palette->user_id = auth()->id();
-            $palette->color1 = $request->input('color1', "");
-            $palette->color2 = $request->input('color2', "");
-            $palette->color3 = $request->input('color3', "");
-            $palette->color4 = $request->input('color4', "");
-            $palette->color5 = $request->input('color5', "");
+            $colors[0] = $request->input('color1', "");
+            $colors[1] = $request->input('color2', "");
+            $colors[2] = $request->input('color3', "");
+            $colors[3] = $request->input('color4', "");
+            $colors[4] = $request->input('color5', "");
+            $palette->fillcolors($colors);
             $palette->views = 0;
             $palette->likes = 0;
             $palette->setUpdatedAt(now());
@@ -114,11 +117,12 @@ class PaletteController extends Controller
         $palette = new App\Palette();
         $palette->title = $request->input('palettetitle', 'unnamed');
         $palette->user_id = auth()->id();
-        $palette->color1 = $request->input('color1', "");
-        $palette->color2 = $request->input('color2', "");
-        $palette->color3 = $request->input('color3', "");
-        $palette->color4 = $request->input('color4', "");
-        $palette->color5 = $request->input('color5', "");
+        $colors[0] = $request->input('color1', "");
+        $colors[1] = $request->input('color2', "");
+        $colors[2] = $request->input('color3', "");
+        $colors[3] = $request->input('color4', "");
+        $colors[4] = $request->input('color5', "");
+        $palette->fillcolors($colors);
         $palette->views = 0;
         $palette->likes = 0;
         $palette->setUpdatedAt(now());

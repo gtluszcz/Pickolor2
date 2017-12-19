@@ -39,11 +39,11 @@
             @if(!$new)
             <?php
             $colors = [];
-            if($palette->color1!=null) array_push($colors,$palette->color1);
-            if($palette->color2!=null) array_push($colors,$palette->color2);
-            if($palette->color3!=null) array_push($colors,$palette->color3);
-            if($palette->color4!=null) array_push($colors,$palette->color4);
-            if($palette->color5!=null) array_push($colors,$palette->color5);
+            if($palette->color1->hex!=null) array_push($colors,$palette->color1);
+            if($palette->color2->hex!=null) array_push($colors,$palette->color2);
+            if($palette->color3->hex!=null) array_push($colors,$palette->color3);
+            if($palette->color4->hex!=null) array_push($colors,$palette->color4);
+            if($palette->color5->hex!=null) array_push($colors,$palette->color5);
 
             $counter = 0;
             $palette->views+=1;
@@ -90,7 +90,7 @@
 
             <div class="color">
                 <div class="color-bar">
-                    <input class="color-title" name="color{{$counter}}" type="text" maxlength="7"  value="{{$color}}" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
+                    <input class="color-title" name="color{{$counter}}" type="text" maxlength="7"  value="{{$color->hex}}" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                     <div class="icons">
                         <span class="glyphicon glyphicon-heart"></span>
                         <span class="glyphicon glyphicon-trash sort-hidden"></span>

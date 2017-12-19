@@ -30,9 +30,10 @@ Route::get('/palettes/my', 'PaletteController@showmy');
 Route::get('/palettes/favourite', 'PaletteController@showmyfavourite');
 
 Route::get('/palette/{palette}', 'PaletteController@editexisting');
+Route::get('/palette','PaletteController@editnew');
+
 Route::delete('/palette/{palette}', 'PaletteController@deletepalette');
 
-Route::get('/palette','PaletteController@editnew');
 
 Route::post('/palette/{palette}','PaletteController@save');
 Route::post('/palette','PaletteController@savenew');

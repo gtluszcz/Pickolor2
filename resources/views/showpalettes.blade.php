@@ -82,29 +82,29 @@
 
                 </div>
                 <div class="palette-colors">
-                    @if ($palette->color1 != null)
-                    <div class="color" style="background-color: {{$palette->color1}}">
-                        <div class="color-title">{{$palette->color1}}</div>
+                    @if ($palette->color1->hex != null)
+                    <div class="color" style="background-color: {{$palette->color1->hex}}">
+                        <div class="color-title">{{$palette->color1->hex}}</div>
                     </div>
                     @endif
-                    @if ($palette->color2 != null)
-                        <div class="color" style="background-color: {{$palette->color2}}">
-                            <div class="color-title">{{$palette->color2}}</div>
+                    @if ($palette->color2->hex != null)
+                        <div class="color" style="background-color: {{$palette->color2->hex}}">
+                            <div class="color-title">{{$palette->color2->hex}}</div>
                         </div>
                     @endif
-                    @if ($palette->color3 != null)
-                        <div class="color" style="background-color: {{$palette->color3}}">
-                            <div class="color-title">{{$palette->color3}}</div>
+                    @if ($palette->color3->hex != null)
+                        <div class="color" style="background-color: {{$palette->color3->hex}}">
+                            <div class="color-title">{{$palette->color3->hex}}</div>
                         </div>
                     @endif
-                    @if ($palette->color4 != null)
-                        <div class="color" style="background-color: {{$palette->color4}}">
-                            <div class="color-title">{{$palette->color4}}</div>
+                    @if ($palette->color4->hex != null)
+                        <div class="color" style="background-color: {{$palette->color4->hex}}">
+                            <div class="color-title">{{$palette->color4->hex}}</div>
                         </div>
                     @endif
-                    @if ($palette->color5 != null)
-                        <div class="color" style="background-color: {{$palette->color5}}">
-                            <div class="color-title">{{$palette->color5}}</div>
+                    @if ($palette->color5->hex != null)
+                        <div class="color" style="background-color: {{$palette->color5->hex}}">
+                            <div class="color-title">{{$palette->color5->hex}}</div>
                         </div>
                     @endif
                 </div>

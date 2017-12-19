@@ -36,11 +36,28 @@ class User extends Authenticatable
         return $this->belongsToMany(Palette::class);
     }
 
+    public function fav_colors(){
+        return $this->belongsToMany(Color::class);
+    }
+
     public function has_fav_palette(Palette $palette)
     {
         foreach ($this->fav_palettes()->get() as $pal)
         {
             if ($pal->id == $palette->id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function has_fav_color(Color $color)
+    {
+        foreach ($this->fav_colors()->get() as $clr)
+        {
+            if ($clr->id == $color->id)
             {
                 return true;
             }
