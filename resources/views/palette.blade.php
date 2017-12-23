@@ -383,5 +383,51 @@
         <div class="likes"><span class="glyphicon glyphicon-heart"></span><div>@if(!$new){{$palette->likes}} @else 0 @endif</div></div>
     </div>
 
+    @if(!$new)
+    <div class="comment-wrapper">
+        @if (auth()->check())
+        <form class="addcomment">
+            <input id="newcomment_text" class="addcomment-input" placeholder="Add new comment">
+            <input id="palette_id" class="hidden" value="{{$palette->id}}">
+            <a><div class="addcomment-button newcomment">Add comment</div></a>
 
+        </form>
+        @else
+            <form class="addcomment cantAddNewColor">
+                <input class="addcomment-input" value="Sign in to add new comment" readonly>
+                <div class="addcomment-button">Add comment</div>
+
+            </form>
+        @endif
+        <div class="comments">
+            @foreach($comments as $comment)
+            <div class="single-comment">
+                <input class="comment-id hidden" value="{{$comment->id}}">
+                <div class="user-comment">
+
+                    <div class="nameandlogo">
+                        <div class="userlogo smalllogo">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                        <div class="user-name">{{$comment->creator->name}}</div>
+                    </div>
+
+                    <div class="dateandcontrols">
+
+                        <div class="comment-time">{{$comment->created_at->diffForHumans()}}</div>
+                        @if(auth()->check() and auth()->id() == $comment->user_id)
+                        <span class="trash glyphicon glyphicon-trash comment-icon deletecomment"></span>
+                        @endif
+                    </div>
+
+
+                </div>
+                <div class="comment-text">{{$comment->text}}</div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    @endif
+
+            <meta name="_token" content="{!! csrf_token() !!}" />
 @endsection

@@ -68,7 +68,8 @@ class PaletteController extends Controller
     public function editexisting(App\Palette $palette)
     {
         $new = false;
-        return view('palette', compact('palette','new'));
+        $comments = App\Pcomment::where("palette_id","=",$palette->id)->get();
+        return view('palette', compact('palette','new', 'comments'));
     }
     public function editnew()
     {
@@ -108,7 +109,8 @@ class PaletteController extends Controller
 
         }
         $new = false;
-        return view('palette', compact('palette','new'));
+        $comments = App\Pcomment::where("palette_id","=",$palette->id)->get();
+        return view('palette', compact('palette','new', 'comments'));
     }
 
     public function savenew(Request $request)
@@ -130,5 +132,22 @@ class PaletteController extends Controller
         $palette->save();
 
         return redirect("palette/$palette->id");
+    }
+    public function addnewcomment(Request $request){
+        $comment = new App\Pcomment();
+        $comment->palette_id = $request->palette_id;
+        $comment->user_id = auth()->id();
+        $comment->text = $request->text;
+        $comment->setUpdatedAt(now());
+        $comment->setCreatedAt(now());
+        $comment->save();
+
+
+        return ['success' => true, 'data' => $comment->id];
+
+    }
+
+    public function deletecomment(App\Pcomment $comment){
+        $comment->delete();
     }
 }

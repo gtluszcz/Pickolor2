@@ -86,6 +86,7 @@ $(document).ready(function () {
     });
     var editable = false;
 
+    /// if creating new palette
     $('.paleta').ready(function () {
         if (window.location.pathname == '/palette') {
             editable = true;
@@ -102,7 +103,27 @@ $(document).ready(function () {
             $('.picker').removeClass('disabled');
             $('.likes').addClass('hidden');
             $('.views').addClass('hidden');
+            $('.comment-wrapper').addClass('hidden');
         }
+    });
+
+    //fix comments lenghts
+    $('.comments').show(function () {
+        $('.comment-text').each(function () {
+            var ruler = $("<span>" + $(this).html() + "</span>").css({
+                'position': 'absolute',
+                'white-space': 'nowrap',
+                'visibility': 'hidden'
+            }).css("font", $(this).css("font"));
+
+            // Render ruler, measure, then remove
+            $("body").append(ruler);
+            var w = ruler.width();
+            ruler.remove();
+            w = w + ($(this).innerWidth() - $(this).width());
+
+            $(this).closest('.single-comment').width(w);
+        });
     });
 
     ///TABS
@@ -299,6 +320,7 @@ $(document).ready(function () {
         $('.picker').removeClass('disabled');
         $('.likes').addClass('hidden');
         $('.views').addClass('hidden');
+        $('.comment-wrapper').addClass('hidden');
     });
 
     //Finish edit palete title with enter
@@ -579,6 +601,92 @@ $(document).ready(function () {
             }
         }
     }
+
+    ///Manage comments
+
+
+    $('.newcomment').click(function (e) {
+        var whitespace = new RegExp('^\\s*$');
+        if (!whitespace.test($('#newcomment_text').val())) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+
+            e.preventDefault();
+
+            var formData = {
+                text: $('#newcomment_text').val(),
+                palette_id: $('#palette_id').val()
+            };
+
+            var comment = $('<div class="single-comment">\n' + '                <input class="comment-id hidden" value="cikos">\n' + '                <div class="user-comment">\n' + '\n' + '                    <div class="nameandlogo">\n' + '                        <div class="userlogo smalllogo">\n' + '                            <span class="glyphicon glyphicon-user"></span>\n' + '                        </div>\n' + '                        <div class="user-name">' + $('#user_name').html() + '</div>\n' + '                    </div>\n' + '\n' + '                    <div class="dateandcontrols">\n' + '\n' + '                        <div class="comment-time">just now</div>\n' + '                    </div>\n' + '\n' + '\n' + '                </div>\n' + '                <div class="comment-text">' + $('#newcomment_text').val() + '</div>\n' + '            </div>');
+
+            $('.comments').append(comment);
+
+            var ruler = $("<span>" + $(comment).find('.comment-text').html() + "</span>").css({
+                'position': 'absolute',
+                'white-space': 'nowrap',
+                'visibility': 'hidden'
+            }).css("font", $(this).css("font"));
+
+            // Render ruler, measure, then remove
+            $("body").append(ruler);
+            var w = ruler.width();
+            ruler.remove();
+            w = w + 2 * ($(this).innerWidth() - $(this).width()) + 20;
+
+            $(comment).width(w);
+            var id = $(comment).find('.comment-id');
+
+            $.ajax({
+
+                type: 'POST',
+                url: '/comments/new',
+                data: formData,
+                dataType: 'json',
+                success: function success(data) {
+                    console.log(data.data);
+                    id.attr("value", data.data);
+                    var trash = $('<span class="trash glyphicon glyphicon-trash comment-icon deletecomment"></span>\n');
+                    $(comment).find('.dateandcontrols').append(trash);
+                },
+                error: function error(data) {
+                    console.log('Error:', data);
+                }
+            });
+
+            $('#newcomment_text').val("");
+        } else {
+            $('#newcomment_text').val("");
+            $('#newcomment_text').attr("placeholder", "Napisz swój komentarz zanim go dodasz");
+        }
+    });
+
+    $('body').on('click', '.deletecomment', function (e) {
+        e.preventDefault();
+        if (confirm("Do you realy want to delete comment?") == true) {
+            //OK
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+
+            var comment_id = $(this).closest('.single-comment').find('.comment-id').val();
+            $(this).closest('.single-comment').remove();
+
+            $.ajax({
+                type: 'DELETE',
+                url: '/comments/' + comment_id,
+                success: function success(data) {},
+                error: function error(data) {
+                    console.log('Error:', data);
+                }
+            });
+        }
+    });
 });
 
 /***/ })

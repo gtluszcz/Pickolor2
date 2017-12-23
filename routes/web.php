@@ -41,5 +41,7 @@ Route::post('/palette','PaletteController@savenew');
 Route::post('/like/{palette}','PaletteController@like_palette');
 Route::delete('/like/{palette}','PaletteController@unlike_palette');
 
+Route::post('/comments/new','PaletteController@addnewcomment');
+Route::delete('/comments/{comment}','PaletteController@deletecomment');
 
 
