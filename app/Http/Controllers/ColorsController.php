@@ -17,13 +17,13 @@ class ColorsController extends Controller
     {
         switch ($request->query('order','likes')){
             case 'likes':
-                $color = App\Colors::orderBy('likes', 'desc')->paginate(30);
+                $color = App\Color::orderBy('likes', 'desc')->paginate(30);
                 break;
             case 'oldest':
-                $color = App\Colors::orderBy('updated_at', 'desc')->paginate(30);
+                $color = App\Color::orderBy('updated_at', 'desc')->paginate(30);
                 break;
             case 'newest':
-                $color = App\Colors::orderBy('updated_at', 'asc')->paginate(30);
+                $color = App\Color::orderBy('updated_at', 'asc')->paginate(30);
                 break;
 
         }
