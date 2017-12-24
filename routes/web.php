@@ -44,4 +44,9 @@ Route::delete('/like/{palette}','PaletteController@unlike_palette');
 Route::post('/comments/new','PaletteController@addnewcomment');
 Route::delete('/comments/{comment}','PaletteController@deletecomment');
 
+Route::get('/colors/all', 'ColorsController@showall');
+Route::get('/colors/favourite', 'ColorsController@showmyfavourite');
 
+
+Route::post('/likecolor/{color}','ColorsController@like_color');
+Route::delete('/likecolor/{color}','ColorsController@unlike_color');

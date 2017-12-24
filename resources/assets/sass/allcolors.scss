@@ -1,0 +1,17 @@
+.palette-colors{
+  width: 160px;
+  height: 80px;
+  align-self: flex-start;
+  margin: 10px;
+}
+.filler{
+  width: 160px;
+  margin: 0 10px;
+}
+.color{
+  display: flex;
+  justify-content: space-between;
+}
+.glyphicon-heart, .glyphicon-heart-empty{
+  margin: 0 15px;
+}

@@ -7,7 +7,7 @@
         </div>
         <a class="logo onlymobile" href="/">Pickolor</a>
         <a class="main-menu-link onlydesktop" href="/palettes/all" >Palets</a>
-        <a class="main-menu-link onlydesktop" href="#" >Colors</a>
+        <a class="main-menu-link onlydesktop" href="/colors/all" >Colors</a>
         <a class="main-menu-link onlydesktop" href="#" >Gradients</a>
     </div>
     <div class="searchbar">

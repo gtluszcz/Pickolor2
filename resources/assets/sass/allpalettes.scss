@@ -96,11 +96,11 @@ p, .glyphicon{
   display: inline-block;
   text-align: left;
   line-height: 29px;
-  padding:  0 10px;
   flex-shrink: 0;
   height: 29px;
   align-self: center;
   margin-top: 30px;
+  width: 180px;
 
 
 }
@@ -134,7 +134,7 @@ p, .glyphicon{
   background-color: transparent;
   display: flex;
   font-family: Menlo;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   align-content: space-around;
   //border: 1px solid rgba(255,255,255,0.3);
@@ -142,6 +142,10 @@ p, .glyphicon{
   margin: 0 10px;
 
 
+}
+.filler{
+  width: 180px;
+  margin: 0 10px;
 }
 .single-palett-wrapper{
   width: 180px;
@@ -209,7 +213,18 @@ p, .glyphicon{
 .likes-icon{
   margin: 0 0 0 7px;
 }
-
+.show{
+  display: flex !important;
+}
+.dropdown-menu{
+  flex-direction: column;
+  padding: 5px;
+  color: #013992;
+  background-color: floralwhite;
+}
+.btn.focus, .btn:focus, .btn:hover{
+  color: inherit !important;
+}
 @media (max-width: 1200px) {
 
 }

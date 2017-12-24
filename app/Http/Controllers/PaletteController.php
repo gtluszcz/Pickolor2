@@ -20,25 +20,67 @@ class PaletteController extends Controller
 
 
 
-    public function showall()
+    public function showall(Request $request)
     {
-        $palettes = App\Palette::paginate(6);
+
+        switch ($request->query('order','likes')){
+            case 'likes':
+                $palettes = App\Palette::orderBy('likes', 'desc')->paginate(6);
+                break;
+            case 'views':
+                $palettes = App\Palette::orderBy('views', 'desc')->paginate(6);
+                break;
+            case 'oldest':
+                $palettes = App\Palette::orderBy('updated_at', 'desc')->paginate(6);
+                break;
+            case 'newest':
+                $palettes = App\Palette::orderBy('updated_at', 'asc')->paginate(6);
+                break;
+
+        }
 
         return view('showpalettes', compact('palettes'));
     }
 
-    public function showmy()
+    public function showmy(Request $request)
     {
-        $palettes = App\Palette::where('user_id',"=",auth()->id())->paginate(6);
+        switch ($request->query('order','likes')){
+            case 'likes':
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('likes', 'desc')->paginate(6);
+                break;
+            case 'views':
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('views', 'desc')->paginate(6);
+                break;
+            case 'oldest':
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('updated_at', 'desc')->paginate(6);
+                break;
+            case 'newest':
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('updated_at', 'asc')->paginate(6);
+                break;
 
+        }
 
         return view('showpalettes', compact('palettes'));
     }
 
-    public function showmyfavourite()
+    public function showmyfavourite(Request $request)
     {
         $user = App\User::find(auth()->id());
-        $palettes = $user->fav_palettes()->paginate(6);
+        switch ($request->query('order','likes')){
+            case 'likes':
+                $palettes = $user->fav_palettes()->orderBy('likes', 'desc')->paginate(6);
+                break;
+            case 'views':
+                $palettes = $user->fav_palettes()->orderBy('views', 'desc')->paginate(6);
+                break;
+            case 'oldest':
+                $palettes = $user->fav_palettes()->orderBy('updated_at', 'desc')->paginate(6);
+                break;
+            case 'newest':
+                $palettes = $user->fav_palettes()->orderBy('updated_at', 'asc')->paginate(6);
+                break;
+
+        }
 
         return view('showpalettes', compact('palettes'));
     }

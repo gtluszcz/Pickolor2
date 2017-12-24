@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 53);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 53:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(56);
 
 
 /***/ }),
 
-/***/ 54:
+/***/ 56:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
@@ -87,62 +87,32 @@ $(document).ready(function () {
             }
         });
 
-        var palette_id = $(this).parent().parent().find('.id').val();
+        var color_id = $(this).parent().find('.color-id').html();
 
         if ($(this).hasClass('glyphicon-heart-empty')) {
             //LIKE
             $(this).removeClass('glyphicon-heart-empty');
             $(this).addClass('glyphicon-heart');
 
-            var likes = $(this).closest('.single-palett-wrapper').find('.likes-nr').html();
-            $(this).closest('.single-palett-wrapper').find('.likes-nr').html(likes - -1);
-
             var type = "POST";
         } else if ($(this).hasClass('glyphicon-heart')) {
             //UNLIKE
             $(this).removeClass('glyphicon-heart');
             $(this).addClass('glyphicon-heart-empty');
-            if (window.location.pathname == '/palettes/favourite') {
-                $(this).closest('.single-palett-wrapper').remove();
+            if (window.location.pathname == '/colors/favourite') {
+                $(this).closest('.palette-colors').remove();
             }
-            var likes = $(this).closest('.single-palett-wrapper').find('.likes-nr').html();
-            $(this).closest('.single-palett-wrapper').find('.likes-nr').html(likes - 1);
-
             var type = "DELETE";
         }
 
         $.ajax({
             type: type,
-            url: '/like/' + palette_id,
+            url: '/likecolor/' + color_id,
             success: function success(data) {},
             error: function error(data) {
                 console.log('Error:', data);
             }
         });
-    });
-
-    $('body').on('click', '.trash', function (e) {
-        e.preventDefault();
-        if (confirm("Do you realy want to delete palette?") == true) {
-            //OK
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-            });
-
-            var palette_id = $(this).parent().parent().find('.id').val();
-            $(this).closest('.single-palett-wrapper').remove();
-
-            $.ajax({
-                type: 'DELETE',
-                url: '/palette/' + palette_id,
-                success: function success(data) {},
-                error: function error(data) {
-                    console.log('Error:', data);
-                }
-            });
-        }
     });
 
     $('.palettes-wrapper').ready(function () {
@@ -153,8 +123,10 @@ $(document).ready(function () {
             var hsl = rgbToHsl(hexToRgb(color).r, hexToRgb(color).g, hexToRgb(color).b);
             if (hsl[2] > 0.7) {
                 $(this).css("color", 'black');
+                $(this).parent().find('.heart').css("color", 'black');
             } else if (hsl[2] <= 0.7) {
                 $(this).css("color", 'white');
+                $(this).parent().find('.heart').css("color", 'white');
             }
         });
     });

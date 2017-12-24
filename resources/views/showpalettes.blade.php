@@ -18,7 +18,7 @@
 
 
 @section('page_js')
-
+    <script src="../js/external/colorconversion.js"></script>
     <script src="../js/external/jquery.js"></script>
     <script src="../js/external/jquery-ui.min.js"></script>
     <script src="../js/external/jquery.ui.touch-punch.min.js"></script>
@@ -30,12 +30,39 @@
 
 @section('page_content')
 
+
+    <?php
+
+    function addOrUpdateUrlParam($name, $value)
+    {
+        $params = $_GET;
+        unset($params[$name]);
+        $params[$name] = $value;
+        return '?'.http_build_query($params);
+
+    }
+    $likes = addOrUpdateUrlParam("order","likes");
+    $newest = addOrUpdateUrlParam("order","newest");
+    $oldest = addOrUpdateUrlParam("order","oldest");
+    $views = addOrUpdateUrlParam("order","views");
+    ?>
     <div class="controls-wrapper">
         <a href="/palette" class="addpalette">
             <div class="plus">+</div>
             <div class="addpalette-title">Add palette</div>
         </a>
-            <div class="order">order by: likes</div>
+        <div class="dropdown show order">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                order by: likes
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="{{$likes}}">likes</a>
+                <a class="dropdown-item" href="{{$newest}}">newest</a>
+                <a class="dropdown-item" href="{{$oldest}}">oldest</a>
+                <a class="dropdown-item" href="{{$views}}">views</a>
+            </div>
+        </div>
             <div class="palettes-tabs">
                 <a href="/palettes/all" class="tab-link
                     @if (Request::is('*/all'))
@@ -117,6 +144,10 @@
 
 
         @endforeach
+        <div class="filler"></div>
+        <div class="filler"></div>
+        <div class="filler"></div>
+        <div class="filler"></div>
 
     </div>
     <meta name="_token" content="{!! csrf_token() !!}" />

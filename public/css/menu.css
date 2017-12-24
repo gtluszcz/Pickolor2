@@ -7,6 +7,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: #232323;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#6400a8), to(#013992));
   background-image: linear-gradient(#6400a8 0%, #013992 100%);
   color: white;

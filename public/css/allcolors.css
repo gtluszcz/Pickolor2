@@ -1,0 +1,27 @@
+.palette-colors {
+  width: 160px;
+  height: 80px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin: 10px;
+}
+
+.filler {
+  width: 160px;
+  margin: 0 10px;
+}
+
+.color {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.glyphicon-heart,
+.glyphicon-heart-empty {
+  margin: 0 15px;
+}
+

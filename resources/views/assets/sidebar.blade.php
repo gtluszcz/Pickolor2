@@ -11,6 +11,6 @@
         <div class="sidemenu-bar"><a href="/logout">logout</a></div>
     @endif
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="/palettes/all" >Palets</a></div>
-    <div class="sidemenu-bar side-menu-link onlymobile"><a href="#" >Colors</a></div>
+    <div class="sidemenu-bar side-menu-link onlymobile"><a href="/colors/all" >Colors</a></div>
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="#" >Gradients</a></div>
 </div>
