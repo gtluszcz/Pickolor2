@@ -52,7 +52,7 @@
         </a>
         <div class="dropdown order">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                order by: @if(app('request')->input('order')==null)likes@else{{app('request')->input('order')}}@endif
+                order by: @if(app('request')->input('order')==null)likes @else{{app('request')->input('order')}}@endif
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
