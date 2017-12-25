@@ -31,10 +31,10 @@ class PaletteController extends Controller
                 $palettes = App\Palette::orderBy('views', 'desc')->paginate(6);
                 break;
             case 'oldest':
-                $palettes = App\Palette::orderBy('created_at', 'desc')->paginate(6);
+                $palettes = App\Palette::orderBy('created_at', 'asc')->paginate(6);
                 break;
             case 'newest':
-                $palettes = App\Palette::orderBy('created_at', 'asc')->paginate(6);
+                $palettes = App\Palette::orderBy('created_at', 'desc')->paginate(6);
                 break;
 
         }
@@ -52,10 +52,10 @@ class PaletteController extends Controller
                 $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('views', 'desc')->paginate(6);
                 break;
             case 'oldest':
-                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('created_at', 'desc')->paginate(6);
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('created_at', 'asc')->paginate(6);
                 break;
             case 'newest':
-                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('created_at', 'asc')->paginate(6);
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('created_at', 'desc')->paginate(6);
                 break;
 
         }
@@ -74,10 +74,10 @@ class PaletteController extends Controller
                 $palettes = $user->fav_palettes()->orderBy('views', 'desc')->paginate(6);
                 break;
             case 'oldest':
-                $palettes = $user->fav_palettes()->orderBy('created_at', 'desc')->paginate(6);
+                $palettes = $user->fav_palettes()->orderBy('created_at', 'asc')->paginate(6);
                 break;
             case 'newest':
-                $palettes = $user->fav_palettes()->orderBy('created_at', 'asc')->paginate(6);
+                $palettes = $user->fav_palettes()->orderBy('created_at', 'desc')->paginate(6);
                 break;
 
         }

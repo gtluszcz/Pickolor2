@@ -20,10 +20,10 @@ class ColorsController extends Controller
                 $colors = App\Color::orderBy('likes', 'desc')->paginate(30);
                 break;
             case 'oldest':
-                $colors = App\Color::orderBy('created_at', 'desc')->paginate(30);
+                $colors = App\Color::orderBy('created_at', 'asc')->paginate(30);
                 break;
             case 'newest':
-                $colors = App\Color::orderBy('created_at', 'asc')->paginate(30);
+                $colors = App\Color::orderBy('created_at', 'desc')->paginate(30);
                 break;
 
         }
@@ -41,10 +41,10 @@ class ColorsController extends Controller
                 $colors = $user->fav_colors()->orderBy('likes', 'desc')->paginate(30);
                 break;
             case 'oldest':
-                $colors = $user->fav_colors()->orderBy('created_at', 'desc')->paginate(30);
+                $colors = $user->fav_colors()->orderBy('created_at', 'asc')->paginate(30);
                 break;
             case 'newest':
-                $colors = $user->fav_colors()->orderBy('created_at', 'asc')->paginate(30);
+                $colors = $user->fav_colors()->orderBy('created_at', 'desc')->paginate(30);
                 break;
 
         }
