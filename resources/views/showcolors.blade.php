@@ -50,9 +50,9 @@
             <div class="plus">+</div>
             <div class="addpalette-title">Add color</div>
         </a>
-        <div class="dropdown show order">
+        <div class="dropdown order">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                order by: likes
+                order by: @if(app('request')->input('order')==null)likes@else{{app('request')->input('order')}}@endif
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
