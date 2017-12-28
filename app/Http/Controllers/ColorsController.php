@@ -78,17 +78,17 @@ class ColorsController extends Controller
         return view('color', compact('new'));
     }
 
-    public function colorcolor(Request $request){
+    public function savenew(Request $request){
 
-//        if (!App\Color::where('hex','=',$request->input('color1', ""))->exists()){
-//            $color1 = new App\Color();
-//            $color1->createWithColor($request->input('color1', ""));
-//            $color1->save();
-//        }else{
-//            $color1= App\Color::where('hex','=',$request->input('color1', ""))->first();
-//        }
+        if (!App\Color::where('hex','=',$request->input('color1', ""))->exists()){
+            $color1 = new App\Color();
+            $color1->createWithColor($request->input('color1', ""));
+            $color1->save();
+        }else{
+            $color1= App\Color::where('hex','=',$request->input('color1', ""))->first();
+        }
 
-        //return redirect("color/$color1->id");
+        return redirect("color/$color1->id");
     }
 
     public function addnewcomment(Request $request){

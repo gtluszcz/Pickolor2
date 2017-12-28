@@ -59,10 +59,10 @@ Route::delete('/likecolor/{color}','ColorsController@unlike_color');
 Route::get('/color/{color}', 'ColorsController@editexisting');
 Route::get('/color','ColorsController@editnew');
 
-Route::post('/colornew/new','ColorsController@colorcolor');
 
 Route::post('/ccomments/new','ColorsController@addnewcomment');
 Route::delete('/ccomments/{comment}','ColorsController@deletecomment');
 
+Route::post('/color','ColorsController@savenew');
 
 

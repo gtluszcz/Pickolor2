@@ -293,18 +293,7 @@ $(document).ready(function() {
     });
 
 
-    //like
-    $('.paleta').on('click', '.glyphicon', function() {
-        if ($(this).hasClass('glyphicon-heart-empty')){
-            $(this).removeClass('glyphicon-heart-empty');
-            $(this).addClass('glyphicon-heart');
-        }
-        else if ($(this).hasClass('glyphicon-heart')){
-            $(this).removeClass('glyphicon-heart');
-            $(this).addClass('glyphicon-heart-empty');
 
-        }
-    });
 
     //addcolor
     function checkIfCanAdd(){
@@ -748,22 +737,46 @@ $(document).ready(function() {
 
     //manage likes
 
-    //like
-    $('.paleta').on('click', '.glyphicon', function() {
-        if ($(this).hasClass('glyphicon-heart-empty')){
+    $('.likeheart').click(function(e){
 
-            //like
+        e.preventDefault();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
+
+        var color_id = $(this).parent().parent().find('.colorid').val();
+
+        if ($(this).hasClass('glyphicon-heart-empty')){
+            //LIKE
             $(this).removeClass('glyphicon-heart-empty');
             $(this).addClass('glyphicon-heart');
+
+
+            var type = "POST";
+
+
         }
         else if ($(this).hasClass('glyphicon-heart')){
-
-            //unlike
+            //UNLIKE
             $(this).removeClass('glyphicon-heart');
             $(this).addClass('glyphicon-heart-empty');
+            var type = "DELETE";
 
         }
-    });
 
+        $.ajax({
+            type: type,
+            url: '/likecolor/'+color_id,
+            success: function (data) {
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+
+    });
 
 });

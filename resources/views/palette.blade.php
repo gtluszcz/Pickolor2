@@ -90,6 +90,7 @@
 
             <div class="color">
                 <div class="color-bar">
+                    <input class="colorid hidden" value="{{$color->id}}" readonly>
                     <input class="color-title" name="color{{$counter}}" type="text" maxlength="7"  value="{{$color->hex}}" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                     <div class="icons">
                         @if(auth()->check())
@@ -388,7 +389,7 @@
     <!--below palette controlling buttons-->
     <div class="controls">
         <div class="views"><span class="glyphicon glyphicon-eye-open"></span><div>@if(!$new){{$palette->views}} @else 0 @endif</div></div>
-        <div class="likes"><span class="glyphicon glyphicon-heart"></span><div>@if(!$new){{$palette->likes}} @else 0 @endif</div></div>
+        <div class="likes"><span class="glyphicon glyphicon-heart"></span><div id="likesamount">@if(!$new){{$palette->likes}} @else 0 @endif</div></div>
     </div>
 
     @if(!$new)

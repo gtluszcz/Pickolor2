@@ -40,7 +40,7 @@
 
 
 
-                <form name="paletaForm" method="post" href="/colornew/new">
+                <form name="paletaForm" method="post" action="/color">
 
 
                     {!! csrf_field() !!}
@@ -67,6 +67,7 @@
                         @if(!$new)
                                 <div class="color active">
                                     <div class="color-bar">
+                                        <input id="colorid" class="hidden" value="{{$color->id}}" readonly>
                                         <input class="color-title" name="color1" type="text" maxlength="7"  value="{{$color->hex}}" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                                         <div class="icons">
                                             @if(auth()->check())
@@ -145,6 +146,7 @@
                                 <div class="color-bar">
                                     <input class="color-title" name="color1" type="text" maxlength="7"  value="#00BFFF" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                                     <div class="icons">
+                                        <span class="glyphicon glyphicon-heart likeheart"></span>
                                         <span class="glyphicon glyphicon-trash sort-hidden"></span>
                                         <span class="glyphicon glyphicon-sort sort-hidden"></span>
                                     </div>
@@ -221,7 +223,7 @@
                 <!--below palette controlling buttons-->
                 <div class="controls">
                     <div class="views"></div>
-                    <div class="likes"><span class="glyphicon glyphicon-heart"></span><div>@if(!$new){{$color->likes}} @else 0 @endif</div></div>
+                    <div class="likes"><span class="glyphicon glyphicon-heart "></span><div id="likesamount">@if(!$new){{$color->likes}} @else 0 @endif</div></div>
                 </div>
 
                 @if(!$new)
