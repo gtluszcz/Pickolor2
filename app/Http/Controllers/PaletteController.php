@@ -25,16 +25,16 @@ class PaletteController extends Controller
 
         switch ($request->query('order','likes')){
             case 'likes':
-                $palettes = App\Palette::orderBy('likes', 'desc')->paginate(6);
+                $palettes = App\Palette::orderBy('likes', 'desc')->paginate(18);
                 break;
             case 'views':
-                $palettes = App\Palette::orderBy('views', 'desc')->paginate(6);
+                $palettes = App\Palette::orderBy('views', 'desc')->paginate(18);
                 break;
             case 'oldest':
-                $palettes = App\Palette::orderBy('created_at', 'asc')->paginate(6);
+                $palettes = App\Palette::orderBy('created_at', 'asc')->paginate(18);
                 break;
             case 'newest':
-                $palettes = App\Palette::orderBy('created_at', 'desc')->paginate(6);
+                $palettes = App\Palette::orderBy('created_at', 'desc')->paginate(18);
                 break;
 
         }
@@ -46,16 +46,16 @@ class PaletteController extends Controller
     {
         switch ($request->query('order','likes')){
             case 'likes':
-                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('likes', 'desc')->paginate(6);
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('likes', 'desc')->paginate(18);
                 break;
             case 'views':
-                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('views', 'desc')->paginate(6);
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('views', 'desc')->paginate(18);
                 break;
             case 'oldest':
-                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('created_at', 'asc')->paginate(6);
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('created_at', 'asc')->paginate(18);
                 break;
             case 'newest':
-                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('created_at', 'desc')->paginate(6);
+                $palettes = App\Palette::where('user_id',"=",auth()->id())->orderBy('created_at', 'desc')->paginate(18);
                 break;
 
         }
@@ -68,16 +68,16 @@ class PaletteController extends Controller
         $user = App\User::find(auth()->id());
         switch ($request->query('order','likes')){
             case 'likes':
-                $palettes = $user->fav_palettes()->orderBy('likes', 'desc')->paginate(6);
+                $palettes = $user->fav_palettes()->orderBy('likes', 'desc')->paginate(18);
                 break;
             case 'views':
-                $palettes = $user->fav_palettes()->orderBy('views', 'desc')->paginate(6);
+                $palettes = $user->fav_palettes()->orderBy('views', 'desc')->paginate(18);
                 break;
             case 'oldest':
-                $palettes = $user->fav_palettes()->orderBy('created_at', 'asc')->paginate(6);
+                $palettes = $user->fav_palettes()->orderBy('created_at', 'asc')->paginate(18);
                 break;
             case 'newest':
-                $palettes = $user->fav_palettes()->orderBy('created_at', 'desc')->paginate(6);
+                $palettes = $user->fav_palettes()->orderBy('created_at', 'desc')->paginate(18);
                 break;
 
         }

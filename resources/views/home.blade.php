@@ -34,7 +34,7 @@
     <div class="addpalette">
         <a href="/palette" class="addpalette-title left">Add palette</a>
         <div class="plus">+</div>
-        <a href="/color/new" class="addpalette-title right">Add color</a>
+        <a href="/color" class="addpalette-title right">Add color</a>
     </div>
     <div class="start">
         <div class="welcome">

@@ -365,6 +365,12 @@ main-menu-link:focus {
   }
 }
 
+@media (max-width: 500px) {
+  .searchinput {
+    width: 150px;
+  }
+}
+
 @media (max-width: 370px) {
   .searchinput,
   .searchbar {

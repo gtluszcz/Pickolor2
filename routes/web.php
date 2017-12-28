@@ -25,6 +25,9 @@ Route::post('/login', 'SessionsControler@store');
 
 Route::get('/logout', 'SessionsControler@destroy');
 
+
+
+//Palette
 Route::get('/palettes/all', 'PaletteController@showall');
 Route::get('/palettes/my', 'PaletteController@showmy');
 Route::get('/palettes/favourite', 'PaletteController@showmyfavourite');
@@ -44,9 +47,14 @@ Route::delete('/like/{palette}','PaletteController@unlike_palette');
 Route::post('/comments/new','PaletteController@addnewcomment');
 Route::delete('/comments/{comment}','PaletteController@deletecomment');
 
+
+//Colors
 Route::get('/colors/all', 'ColorsController@showall');
 Route::get('/colors/favourite', 'ColorsController@showmyfavourite');
 
 
 Route::post('/likecolor/{color}','ColorsController@like_color');
 Route::delete('/likecolor/{color}','ColorsController@unlike_color');
+
+Route::get('/color/{color}', 'ColorsController@editexisting');
+Route::get('/color','ColorsController@editnew');

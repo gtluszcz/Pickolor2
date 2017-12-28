@@ -80,7 +80,7 @@ class ColorsController extends Controller
     public function editnew()
     {
         $new = true;
-        return view('palette', compact('new'));
+        return view('color', compact('new'));
     }
 
 }

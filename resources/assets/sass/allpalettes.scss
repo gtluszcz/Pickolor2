@@ -36,7 +36,7 @@ p, .glyphicon{
 .controls-wrapper{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
   padding:  0 30px;
@@ -140,7 +140,7 @@ p, .glyphicon{
   background-color: transparent;
   display: flex;
   font-family: Menlo;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-content: space-around;
   //border: 1px solid rgba(255,255,255,0.3);
