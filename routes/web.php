@@ -44,8 +44,8 @@ Route::post('/palette','PaletteController@savenew');
 Route::post('/like/{palette}','PaletteController@like_palette');
 Route::delete('/like/{palette}','PaletteController@unlike_palette');
 
-Route::post('/comments/new','PaletteController@addnewcomment');
-Route::delete('/comments/{comment}','PaletteController@deletecomment');
+Route::post('/pcomments/new','PaletteController@addnewcomment');
+Route::delete('/pcomments/{comment}','PaletteController@deletecomment');
 
 
 //Colors
@@ -58,3 +58,11 @@ Route::delete('/likecolor/{color}','ColorsController@unlike_color');
 
 Route::get('/color/{color}', 'ColorsController@editexisting');
 Route::get('/color','ColorsController@editnew');
+
+Route::post('/colornew/new','ColorsController@colorcolor');
+
+Route::post('/ccomments/new','ColorsController@addnewcomment');
+Route::delete('/ccomments/{comment}','ColorsController@deletecomment');
+
+
+

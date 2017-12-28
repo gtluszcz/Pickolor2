@@ -75,7 +75,7 @@ a, a:hover{
   padding: 0px;
   padding-top: 5px;
   //background: rgba(0,0,0,0.1);
-  transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out,0s color ease;
   margin-left: 0px;
   width:100%;
 
@@ -112,7 +112,7 @@ a, a:hover{
   font-size: 17px;
   margin: 0 20px;
   vertical-align: middle;
-  transition: .2s all ease;
+  transition: .2s border ease;
   padding: 0 5px;
   background: transparent;
 }
@@ -122,7 +122,7 @@ a, a:hover{
 .side-menu-link{
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  transition: .2s all ease;
+  transition: .2s border ease;
 
 
 }
@@ -172,7 +172,7 @@ a, a:hover{
   padding: 0px;
   max-width: 100%;
   padding-bottom: 100px;
-  transition: .5s all ease;
+  transition: .5s all ease, 0s color ease;
 
 }
 
@@ -233,7 +233,7 @@ a, a:hover{
   -webkit-transition: .25s ease-in-out;
   -moz-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out, 0s color ease;
+  transition: .25s ease-in-out, 0s background-color ease;
 }
 
 .nav-icon4 span:nth-child(1) {

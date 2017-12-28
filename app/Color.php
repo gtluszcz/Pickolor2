@@ -24,6 +24,9 @@ class Color extends Model
         $this->likes = 0;
     }
 
+    public function createdby(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 
 
     public function fav_users(){

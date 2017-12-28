@@ -66,21 +66,47 @@ class ColorsController extends Controller
     }
 
 
-
-
-    ////PALETTE
-
-
-    public function editexisting(App\Palette $palette)
+    public function editexisting(App\Color $color)
     {
         $new = false;
-        $comments = App\Pcomment::where("palette_id","=",$palette->id)->get();
-        return view('palette', compact('palette','new', 'comments'));
+        $comments = App\Ccomment::where("color_id","=",$color->id)->get();
+        return view('color', compact('color','new', 'comments'));
     }
     public function editnew()
     {
         $new = true;
         return view('color', compact('new'));
+    }
+
+    public function colorcolor(Request $request){
+
+//        if (!App\Color::where('hex','=',$request->input('color1', ""))->exists()){
+//            $color1 = new App\Color();
+//            $color1->createWithColor($request->input('color1', ""));
+//            $color1->save();
+//        }else{
+//            $color1= App\Color::where('hex','=',$request->input('color1', ""))->first();
+//        }
+
+        //return redirect("color/$color1->id");
+    }
+
+    public function addnewcomment(Request $request){
+        $comment = new App\Ccomment();
+        $comment->color_id = $request->color_id;
+        $comment->user_id = auth()->id();
+        $comment->text = $request->text;
+        $comment->setUpdatedAt(now());
+        $comment->setCreatedAt(now());
+        $comment->save();
+
+
+        return ['success' => true, 'data' => $comment->id];
+
+    }
+
+    public function deletecomment(App\Ccomment $comment){
+        $comment->delete();
     }
 
 }

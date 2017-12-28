@@ -7,9 +7,11 @@
     "/css/login.css": "/css/login.css",
     "/css/allpalettes.css": "/css/allpalettes.css",
     "/css/allcolors.css": "/css/allcolors.css",
+    "/css/color.css": "/css/color.css",
     "/js/palette.js": "/js/palette.js",
     "/js/menu.js": "/js/menu.js",
     "/js/home.js": "/js/home.js",
+    "/js/color.js": "/js/color.js",
     "/js/allpalettes.js": "/js/allpalettes.js",
     "/js/allcolors.js": "/js/allcolors.js"
 }

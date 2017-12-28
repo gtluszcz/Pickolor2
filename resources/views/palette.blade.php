@@ -92,7 +92,15 @@
                 <div class="color-bar">
                     <input class="color-title" name="color{{$counter}}" type="text" maxlength="7"  value="{{$color->hex}}" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                     <div class="icons">
-                        <span class="glyphicon glyphicon-heart"></span>
+                        @if(auth()->check())
+                            @if (auth()->user()->has_fav_color($color))
+                                <span class="glyphicon glyphicon-heart likeheart"></span>
+                            @else
+                                <span class="glyphicon glyphicon-heart-empty likeheart"></span>
+                            @endif
+                        @else
+                            <span class="glyphicon glyphicon-heart cantAddNewColor "></span><span class="login-to-save">Sign in to save your palettes</span></span>
+                        @endif
                         <span class="glyphicon glyphicon-trash sort-hidden"></span>
                         <span class="glyphicon glyphicon-sort sort-hidden"></span>
                     </div>
@@ -163,7 +171,7 @@
                     <div class="color-bar">
                         <input class="color-title" name="color1" type="text" maxlength="7"  value="#274380" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                         <div class="icons">
-                            <span class="glyphicon glyphicon-heart"></span>
+
                             <span class="glyphicon glyphicon-trash sort-hidden"></span>
                             <span class="glyphicon glyphicon-sort sort-hidden"></span>
                         </div>
@@ -233,7 +241,7 @@
                     <div class="color-bar">
                         <input class="color-title" name="color2" type="text" maxlength="7"  value="#37B8A9" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                         <div class="icons">
-                            <span class="glyphicon glyphicon-heart"></span>
+
                             <span class="glyphicon glyphicon-trash sort-hidden"></span>
                             <span class="glyphicon glyphicon-sort sort-hidden"></span>
                         </div>
@@ -303,7 +311,7 @@
                     <div class="color-bar">
                         <input class="color-title" name="color3" type="text" maxlength="7"  value="#ED390C" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                         <div class="icons">
-                            <span class="glyphicon glyphicon-heart"></span>
+
                             <span class="glyphicon glyphicon-trash sort-hidden"></span>
                             <span class="glyphicon glyphicon-sort sort-hidden"></span>
                         </div>

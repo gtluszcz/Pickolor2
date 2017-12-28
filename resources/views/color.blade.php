@@ -12,6 +12,7 @@
     <!--my css-->
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/palette.css">
+    <link rel="stylesheet" href="../css/color.css">
 
 @endsection
 
@@ -28,7 +29,7 @@
 
     <!--my js-->
     <script src="../js/menu.js"></script>
-    <script src="../js/palette.js"></script>
+    <script src="../js/color.js"></script>
 
 
 @endsection
@@ -36,42 +37,23 @@
 
 @section('page_content')
 
-    @if(!$new)
-        <?php
-        $colors = [];
-        if($palette->color1->hex!=null) array_push($colors,$palette->color1);
-        if($palette->color2->hex!=null) array_push($colors,$palette->color2);
-        if($palette->color3->hex!=null) array_push($colors,$palette->color3);
-        if($palette->color4->hex!=null) array_push($colors,$palette->color4);
-        if($palette->color5->hex!=null) array_push($colors,$palette->color5);
-
-        $counter = 0;
-        $palette->views+=1;
-        $palette->save();
-        ?>
-    @endif
 
 
-                    @if(!$new)
-                        <form name="paletaForm" method="post" href="/color/{{$color->id}}">
-                    @else
-                        <form name="paletaForm" method="post" href="/color">
-                    @endif
+
+                <form name="paletaForm" method="post" href="/colornew/new">
+
 
                     {!! csrf_field() !!}
                     <input name="new" type="text" value="{{$new}}" class="hidden">
                     <!--Title-->
-                    <input class="palete-title" name="palettetitle" type="text" value="@if(!$new){{$color->hex}} @else #274380 @endif︎"  spellcheck="false"  readonly>
-
-
                     <!--palette controlling buttons-->
                     <div class="controls">
-                        <a class="creator" href="#">creator: @if(!$new){{$color->createdby->name}} @else unnamed @endif</a>
+                        <div class="k"></div>
                         <div style="max-width: 130px;">
                             @if(auth()->check())
                                 <span class="save sort-hidden glyphicon glyphicon-floppy-saved" type="submit"></span>
                             @else
-                                <span class="sort-hidden glyphicon glyphicon-floppy-saved cantAddNewColor" type="submit"><span class="login-to-save">Sign in to save your palettes</span></span>
+                                <span class="sort-hidden glyphicon glyphicon-floppy-saved cantAddNewColor" type="submit"><span class="login-to-save">Sign in to save your colors</span></span>
                             @endif
                         </div>
                         <div class="edit"><span class="glyphicon glyphicon-pencil"></span><div>Edit</div></div>
@@ -83,13 +65,19 @@
 
                         <!--#1 COLOR-->
                         @if(!$new)
-                                <div class="color">
+                                <div class="color active">
                                     <div class="color-bar">
                                         <input class="color-title" name="color1" type="text" maxlength="7"  value="{{$color->hex}}" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                                         <div class="icons">
-                                            <span class="glyphicon glyphicon-heart"></span>
-                                            <span class="glyphicon glyphicon-trash sort-hidden"></span>
-                                            <span class="glyphicon glyphicon-sort sort-hidden"></span>
+                                            @if(auth()->check())
+                                                @if (auth()->user()->has_fav_color($color))
+                                                    <span class="glyphicon glyphicon-heart likeheart"></span>
+                                                @else
+                                                    <span class="glyphicon glyphicon-heart-empty likeheart"></span>
+                                                @endif
+                                            @else
+                                                <span class="glyphicon glyphicon-heart cantAddNewColor "></span><span class="login-to-save">Sign in to save your palettes</span></span>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -153,11 +141,10 @@
                                     </div>
                                 </div>
                         @else
-                            <div class="color">
+                            <div class="color active">
                                 <div class="color-bar">
-                                    <input class="color-title" name="color1" type="text" maxlength="7"  value="#274380" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
+                                    <input class="color-title" name="color1" type="text" maxlength="7"  value="#00BFFF" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                                     <div class="icons">
-                                        <span class="glyphicon glyphicon-heart"></span>
                                         <span class="glyphicon glyphicon-trash sort-hidden"></span>
                                         <span class="glyphicon glyphicon-sort sort-hidden"></span>
                                     </div>
@@ -233,6 +220,7 @@
 
                 <!--below palette controlling buttons-->
                 <div class="controls">
+                    <div class="views"></div>
                     <div class="likes"><span class="glyphicon glyphicon-heart"></span><div>@if(!$new){{$color->likes}} @else 0 @endif</div></div>
                 </div>
 
