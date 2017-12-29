@@ -430,6 +430,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:hover {
   color: dimgrey;
   border: 0px;
   line-height: 20px;
+  position: relative;
 }
 
 .nameandlogo {

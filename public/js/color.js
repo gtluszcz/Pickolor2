@@ -423,6 +423,9 @@ $(document).ready(function () {
 
         //change .color background-color
         object.css("background-color", colorhex);
+        $('.showoff').css("color", colorhex);
+        $('#svg-head').css("fill", colorhex);
+        $('#svg-shroom').css("fill", colorhex);
 
         //calculate iluminancy and change fonts
         var hsl = rgbToHsl(hexToRgb(colorhex).r, hexToRgb(colorhex).g, hexToRgb(colorhex).b);
@@ -432,8 +435,85 @@ $(document).ready(function () {
             object.css("color", 'white');
         }
 
-        //initiate background gradient change to match new color
-        changeBackgroundColor();
+        changeanalogusColors(colorhex);
+        changemonochromaticColors(colorhex);
+        changetriadicColors(colorhex);
+        changecomplementaryColor(colorhex);
+    }
+    function changeanalogusColors(colorhex) {
+        var oryginalcolor = tinycolor(colorhex);
+        var colors = oryginalcolor.analogous(7, 12);
+        console.log(colors);
+        $('#analoguscolors').html(" ");
+        colors.shift();
+        colors.forEach(function (element) {
+            var comment = $('<div class="more-color col-lg-2 col-md-2 col-sm-2 col-xs-4"></div>');
+            $('#analoguscolors').append(comment);
+            $(comment).css("background-color", element.toHexString());
+            $(comment).html(element.toHexString());
+            if (element.toHsl().l > 0.7) {
+                $(comment).css("color", 'black');
+            } else {
+                $(comment).css("color", 'white');
+            }
+        });
+    }
+
+    function changemonochromaticColors(colorhex) {
+        var oryginalcolor = tinycolor(colorhex);
+        var colors = oryginalcolor.monochromatic(7);
+        console.log(colors);
+        $('#monochromaticcolors').html(" ");
+        colors.shift();
+        colors.forEach(function (element) {
+            var comment = $('<div class="more-color col-lg-2 col-md-2 col-sm-2 col-xs-4"></div>');
+            $('#monochromaticcolors').append(comment);
+            $(comment).css("background-color", element.toHexString());
+            $(comment).html(element.toHexString());
+            if (element.toHsl().l > 0.7) {
+                $(comment).css("color", 'black');
+            } else {
+                $(comment).css("color", 'white');
+            }
+        });
+    }
+
+    function changetriadicColors(colorhex) {
+        var oryginalcolor = tinycolor(colorhex);
+        var colors = oryginalcolor.triad();
+        console.log(colors);
+        $('#triadiccolors').html(" ");
+        colors.forEach(function (element) {
+            var comment = $('<div class="more-color col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>');
+            $('#triadiccolors').append(comment);
+            $(comment).css("background-color", element.toHexString());
+            $(comment).html(element.toHexString());
+            if (element.toHsl().l > 0.7) {
+                $(comment).css("color", 'black');
+            } else {
+                $(comment).css("color", 'white');
+            }
+        });
+    }
+
+    function changecomplementaryColor(colorhex) {
+        var oryginalcolor = tinycolor(colorhex);
+        var colors = oryginalcolor.complement();
+        $('.actual').css("background-color", colorhex);
+        $('.actual').html(colorhex);
+        if (oryginalcolor.toHsl().l > 0.7) {
+            $('.actual').css("color", 'black');
+        } else {
+            $('.actual').css("color", 'white');
+        }
+
+        $('#complementary').css("background-color", colors.toHexString());
+        $('#complementary').html(colors.toHexString());
+        if (colors.toHsl().l > 0.7) {
+            $('#complementary').css("color", 'black');
+        } else {
+            $('#complementary').css("color", 'white');
+        }
     }
 
     //
@@ -443,54 +523,6 @@ $(document).ready(function () {
     //////
     ///////
 
-
-    function changeBackgroundColor() {
-
-        var colors = [];
-        $(".color-title").each(function (index) {
-            colors[index] = '#F4F4F4';
-        });
-        var coloramount = colors.length;
-
-        if (coloramount == 1) {
-            $("body").css("background", colors[0]);
-        } else if (coloramount == 2) {
-            $("body").css("background", 'linear-gradient(to bottom, ' + colors[0] + ' 0%,' + colors[1] + ' 100%)');
-        } else if (coloramount == 3) {
-            $("body").css("background", 'linear-gradient(to bottom, ' + colors[0] + ' 0%,' + colors[1] + ' 50%,' + colors[2] + ' 100%)');
-        } else if (coloramount == 4) {
-            $("body").css("background", 'linear-gradient(to bottom, ' + colors[0] + ' 0%,' + colors[1] + ' 33%,' + colors[2] + ' 66%,' + colors[3] + ' 100%)');
-        } else if (coloramount == 5) {
-            $("body").css("background", 'linear-gradient(to bottom, ' + colors[0] + ' 0%,' + colors[1] + ' 25%,' + colors[2] + ' 50%,' + colors[3] + ' 75%,' + colors[4] + ' 100%)');
-        }
-
-        changeFontsColor(colors);
-    }
-
-    function changeFontsColor(colors) {
-
-        var coloramount = colors.length;
-        if (coloramount == 1) {
-            var hsl = rgbToHsl(hexToRgb(colors[0]).r, hexToRgb(colors[0]).g, hexToRgb(colors[0]).b);
-            if (hsl[2] > 0.7) {
-                $('body').css("color", 'black');
-                $('.nav-icon4 span').css('background-color', 'black');
-            } else if (hsl[2] <= 0.7) {
-                $('body').css("color", 'white');
-                $('.nav-icon4 span').css('background-color', 'white');
-            }
-        } else if (coloramount >= 2) {
-            var hsl = rgbToHsl(hexToRgb(colors[0]).r, hexToRgb(colors[0]).g, hexToRgb(colors[0]).b);
-            var hsl2 = rgbToHsl(hexToRgb(colors[1]).r, hexToRgb(colors[1]).g, hexToRgb(colors[1]).b);
-            if (hsl[2] > 0.7 || hsl2[2] > 0.7) {
-                $('body').css("color", 'black');
-                $('.nav-icon4 span').css('background-color', 'black');
-            } else if (hsl[2] <= 0.7 && hsl2[2] <= 0.7) {
-                $('body').css("color", 'white');
-                $('.nav-icon4 span').css('background-color', 'white');
-            }
-        }
-    }
 
     ///Manage comments
 

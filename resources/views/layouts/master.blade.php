@@ -15,7 +15,9 @@
 
 </head>
 <body id="body">
-
+    <div id="whitebg"></div>
+    <div id="blackbg"></div>
+    <div id="makered"></div>
     @include('../assets/sidebar')
 
     <div class="container-fluid">

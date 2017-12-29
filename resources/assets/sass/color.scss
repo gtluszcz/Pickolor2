@@ -1,3 +1,133 @@
 .glyphicon-heart, .glyphicon-heart-empty{
   margin-right: 30px;
 }
+
+body{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* background-color: #232323; */
+  /* background-image: -webkit-gradient(linear, left top, left bottom, from(#6400a8), to(#013992)); */
+  /* background-image: linear-gradient(#6400a8 0%, #013992 100%); */
+  /* color: white; */
+  transition: background-image 1s ease-in-out;
+  -webkit-transition: background-image 1s ease-in-out;
+  color: white;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: transparent;
+
+
+}
+.container-fluid{
+  background: linear-gradient(to right, #f7f7f7 60%, #232323 60%);
+  animation: wave 15s ease-in-out infinite;
+  background-size: 200% 200%;
+  animation-direction: alternate;
+  background-position: 90% 90%;
+}
+
+@keyframes wave {
+  0%   { background-position: 90% 90% }
+  33%   { background-position: 90% 90% }
+  66% { background-position: 50% 50%; }
+  100% { background-position: 50% 50%; }
+}
+
+.sidemenu-shown{
+  background-color: #f7f7f7;
+}
+.sidemenu-shown * {
+  mix-blend-mode: difference;
+}
+.navbar,.controls,.user-comment{
+  mix-blend-mode: difference;
+}
+.container{
+  max-width: calc(100% - 0.01px);
+}
+
+.showoff{
+  //position: relative;
+}
+.showoff *{
+  //font-size: 50px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.text1{
+  font-family: 'Permanent Marker', cursive;
+}
+
+.text2 {
+  font-family: 'Bungee Shade', cursive;
+}
+
+.text3{
+  font-family: 'Rye', cursive;
+}
+
+.text4 {
+  font-family: 'Faster One', cursive;
+}
+
+.color{
+  height: auto;
+}
+#svg-head{
+  position: absolute;
+  /* top: 50px; */
+  left: -130px;
+  height: 310px;
+  z-index: 0;
+
+}
+#svg-shroom{
+  height: 260px;
+  position: absolute;
+  right: -100px;
+}
+.comment-wrapper{
+  //position: relative;
+  z-index: 4;
+}
+
+@media (max-width: 740px) {
+
+  #svg-head,#svg-shroom{
+    display: none;
+  }
+
+
+}
+
+.color-more{
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+  margin-top: 30px;
+}
+.more-colors-title{
+  mix-blend-mode: difference;
+  color: inherit;
+  text-align: center;
+
+}
+.color-list{
+  border-radius: 10px;
+  overflow: hidden;
+
+
+}
+.more-color{
+  height: 70px;
+  line-height: 70px;
+  font-size: 20px;
+  text-align: center;
+  flex-grow: 1;
+  text-transform: uppercase;
+  z-index: 4;
+}
