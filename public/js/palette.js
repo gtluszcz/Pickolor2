@@ -104,6 +104,7 @@ $(document).ready(function () {
             $('.likes').addClass('hidden');
             $('.views').addClass('hidden');
             $('.likeheart').addClass('hidden');
+            $('.glyphicon-heart.cantAddNewColor').addClass('hidden');
             $('.comment-wrapper').addClass('hidden');
             if ($('.paleta').children('.color').length <= 2) {
                 $('.glyphicon-trash').addClass('sort-hidden');
@@ -325,6 +326,7 @@ $(document).ready(function () {
         $('.likes').addClass('hidden');
         $('.views').addClass('hidden');
         $('.likeheart').addClass('hidden');
+        $('.glyphicon-heart.cantAddNewColor').addClass('hidden');
         $('.comment-wrapper').addClass('hidden');
         if ($('.paleta').children('.color').length <= 2) {
             $('.glyphicon-trash').addClass('sort-hidden');
