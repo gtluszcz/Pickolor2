@@ -27,6 +27,9 @@ $(document).ready(function() {
             $('.views').addClass('hidden');
             $('.likeheart').addClass('hidden');
             $('.comment-wrapper').addClass('hidden');
+            if ($('.paleta').children('.color').length <= 2){
+                $('.glyphicon-trash').addClass('sort-hidden');
+            }
 
         }
     });
@@ -267,6 +270,9 @@ $(document).ready(function() {
         $('.views').addClass('hidden');
         $('.likeheart').addClass('hidden');
         $('.comment-wrapper').addClass('hidden');
+        if ($('.paleta').children('.color').length <= 2){
+            $('.glyphicon-trash').addClass('sort-hidden');
+        }
 
     });
 
@@ -289,6 +295,9 @@ $(document).ready(function() {
             changeBackgroundColor();
             matchNames();
         }, 400);
+        if ($('.paleta').children('.color').length <= 3){
+            $('.glyphicon-trash').addClass('sort-hidden');
+        }
 
     });
 
@@ -325,7 +334,6 @@ $(document).ready(function() {
                 '                <div class="color-bar">\n' +
                 '                    <input class="color-title" name="color1" type="text" maxlength="7"  value="#232323" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false">\n' +
                 '                    <div class="icons">\n' +
-                '                        <span class="glyphicon glyphicon-heart"></span>\n' +
                 '                        <span class="glyphicon glyphicon-trash sort-hidden"></span>\n' +
                 '                        <span class="glyphicon glyphicon-sort sort-hidden"></span>\n' +
                 '                    </div>\n' +
@@ -394,6 +402,10 @@ $(document).ready(function() {
 
             updateHSLSliders($('.color').last());
             updateRGBSliders($('.color').last());
+
+            if ($('.paleta').children('.color').length >= 3){
+                $('.glyphicon-trash').removeClass('sort-hidden');
+            }
         }
         checkIfCanAdd();
     });

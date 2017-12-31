@@ -72,7 +72,7 @@
 }
 .views, .likes{
   font-size: 25px;
-  margin-top: 30px;
+  margin-top: 20px;
   font-family: Menlo, serif;
 }
 .likes{
@@ -363,11 +363,15 @@ div.jQWCP-wWheel:hover{
   font-size: 20px;
 
 }
+.glyphicon-trash{
+  opacity: 1;
+}
 .sort-hidden{
   visibility: collapse;
   width: 0px;
   margin-right: 0px;
   margin-left: 0px;
+  opacity: 0;
 }
 .glyphicon-align-justify, .glyphicon-plus, .glyphicon-floppy-saved{
   font-size: 30px;
@@ -379,6 +383,12 @@ div.jQWCP-wWheel:hover{
 }
 .glyphicon-floppy-saved{
   top: 4px;
+}
+.glyphicon-eye-open{
+  line-height: 45px;
+}
+.glyphicon-plus{
+  line-height: 45px;
 }
 
 

@@ -222,13 +222,14 @@ main-menu-link:focus {
   opacity: 1;
   width: 23px;
   margin: 0 20px;
-  line-height: 50px;
+  line-height: 76px;
 }
 
 .glyphicon-user {
   font-size: 80px;
   margin: 0px;
   opacity: 0.6;
+  line-height: 50px;
 }
 
 .glyphicon-search {

@@ -16,7 +16,7 @@ body{
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  background: transparent;
+  background: #f7f7f7;
 
 
 }
@@ -36,12 +36,11 @@ body{
 }
 
 .sidemenu-shown{
-  background-color: #f7f7f7;
   z-index: 2;
 }
 .sidemenu-shown * {
   mix-blend-mode: difference;
-  z-index: 3;
+  color: black;
 }
 .navbar,.controls,.user-comment{
   mix-blend-mode: difference;
