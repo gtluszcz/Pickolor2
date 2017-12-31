@@ -69,10 +69,12 @@ body {
 
 .sidemenu-shown {
   background-color: #f7f7f7;
+  z-index: 2;
 }
 
 .sidemenu-shown * {
   mix-blend-mode: difference;
+  z-index: 3;
 }
 
 .navbar,
@@ -82,7 +84,7 @@ body {
 }
 
 .container {
-  max-width: calc(100% - 0.01px);
+  padding-left: 1px;
 }
 
 .showoff * {
@@ -108,7 +110,7 @@ body {
 }
 
 .color {
-  height: auto;
+  height: 407px;
 }
 
 #svg-head {
@@ -136,6 +138,10 @@ body {
   }
 }
 
+div.color-more {
+  padding: 0px;
+}
+
 .color-more {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -146,17 +152,33 @@ body {
           flex-direction: column;
   z-index: 4;
   margin-top: 30px;
+  -webkit-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+  height: auto;
+  overflow: hidden;
+  width: 100%;
 }
 
 .more-colors-title {
-  mix-blend-mode: difference;
   color: inherit;
   text-align: center;
 }
 
 .color-list {
-  border-radius: 10px;
   overflow: hidden;
+}
+
+#showmore {
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 16px;
+  width: 150px;
+  background-color: white;
+  margin: 0 auto;
+  color: black;
+  margin-top: 50px;
 }
 
 .more-color {
@@ -169,5 +191,54 @@ body {
           flex-grow: 1;
   text-transform: uppercase;
   z-index: 4;
+}
+
+.active {
+  height: 912px;
+}
+
+.color-codes {
+  margin-top: 40px;
+  position: relative;
+  z-index: 4;
+  overflow-x: scroll;
+  background: #292b36;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  text-align: left;
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 12px #151515, 1px 1px 11px #464646;
+  box-shadow: inset 0 0 12px #151515;
+}
+
+.color-codes > div {
+  padding: 10px 0;
+}
+
+.highlight {
+  color: #f1c40f;
+}
+
+@media (max-width: 768px) {
+  .color-content > div {
+    margin-bottom: 10px;
+  }
+
+  .picker {
+    padding: 0px !important;
+    width: 40%;
+    margin: 0 30%;
+  }
+
+  .color {
+    height: 610px;
+  }
+
+  .active {
+    height: 1239px;
+  }
 }
 

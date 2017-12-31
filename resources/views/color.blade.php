@@ -68,7 +68,7 @@
 
                         <!--#1 COLOR-->
                         @if(!$new)
-                                <div class="color active">
+                                <div class="color">
                                     <div class="color-bar">
                                         <input id="colorid" class="hidden" value="{{$color->id}}" readonly>
                                         <input class="color-title" name="color1" type="text" maxlength="7"  value="{{$color->hex}}" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
@@ -142,10 +142,66 @@
                                             <input class="wheel-picker disabled">
                                         </div>
 
+                                        <div class="color-more">
+                                            <div class="more-colors-title"><h3>analogus colors</h3></div>
+                                            <div id="analoguscolors" class="color-list">
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="actual more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                            </div>
+
+                                            <div class="more-colors-title"><h3>monochromatic colors</h3></div>
+                                            <div id="monochromaticcolors" class="color-list">
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="actual more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                            </div>
+
+                                            <div class="more-colors-title"><h3>complementary color</h3></div>
+                                            <div class="color-list">
+                                                <div class="actual more-color col-lg-6 col-md-6 col-sm-6 col-xs-6">#333333</div>
+                                                <div id="complementary" class="more-color col-lg-6 col-md-6 col-sm-6 col-xs-6">#333333</div>
+                                            </div>
+
+                                            <div class="more-colors-title"><h3>triadic colors</h3></div>
+                                            <div id="triadiccolors" class="color-list">
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="actual more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                                <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                         @else
-                            <div class="color active">
+                            <div class="color">
                                 <div class="color-bar">
                                     <input class="color-title" name="color1" type="text" maxlength="7"  value="#00BFFF" pattern="^#[0-9a-fA-F]{6}$" spellcheck="false"  readonly>
                                     <div class="icons">
@@ -250,61 +306,36 @@
 
                 </div>
 
-                <div class="color-more">
-                    <div class="more-colors-title"><h3>analogus colors</h3></div>
-                    <div id="analoguscolors" class="color-list">
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="actual more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                            <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                    </div>
+                {{--<div id="showmore"> show codes </div>--}}
 
-                    <div class="more-colors-title"><h3>monochromatic colors</h3></div>
-                    <div id="monochromaticcolors" class="color-list">
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="actual more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                <div class="color-codes">
+                    <div class="col-lg-3 col-md-6">///// COLOR CODES <br>
+                        RGB: rgba(123123123123)<br>
+                        HEX: rgba(123123123123)<br>
+                        HSL: rgba(123123123123)<br>
+                        HSV: rgba(123123123123)
                     </div>
-
-                    <div class="more-colors-title"><h3>complementary color</h3></div>
-                    <div class="color-list">
-                        <div class="actual more-color col-lg-6 col-md-6 col-sm-6 col-xs-6">#333333</div>
-                        <div id="complementary" class="more-color col-lg-6 col-md-6 col-sm-6 col-xs-6">#333333</div>
+                    <div class="col-lg-5 col-md-6">///// CSS CODES <br>
+                        <span class="highlight">.mybgcolor</span> { background-color:#ff9699; }<br>
+                        <span class="highlight">.myforecolor</span> { color:#ff9699; }<br>
+                        <span class="highlight">.mybordercolor</span> { border:3px solid #ff9699; }<br>
                     </div>
-
-                    <div class="more-colors-title"><h3>triadic colors</h3></div>
-                    <div id="triadiccolors" class="color-list">
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="actual more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
-                        <div class="more-color col-lg-1 col-md-1 col-sm-2 col-xs-3">#333333</div>
+                    <div class="col-lg-4 col-md-12">///// CSS3 EXAMPLES <br>
+                        <span class="highlight">.textShadowRgb</span> {<br>
+                        text-shadow: 4px 4px 2px rgba(255,150,153, 0.8); <br>
+                        }<br>
+                        <span class="highlight">.textShadowHex</span> {<br>
+                        text-shadow: 4px 4px 2px #ff9699; <br>
+                        }<br>
+                        <span class="highlight">.divShadow</span> {<br>
+                        -moz-box-shadow: 1px 1px 3px 2px #ff9699;<br>
+                        -webkit-box-shadow: 1px 1px 3px 2px #ff9699;<br>
+                        box-shadow:         1px 1px 3px 2px #ff9699; <br>
+                        }<br>
                     </div>
                 </div>
+
+
 
                 @if(!$new)
                     <div class="comment-wrapper">

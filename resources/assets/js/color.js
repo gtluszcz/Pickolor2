@@ -5,6 +5,23 @@ $(document).ready(function() {
         autoResize: false
 
     });
+
+    $('.picker').click(function (e) {
+        e.stopPropagation();
+    });
+    $('.color-title').click(function (e) {
+        e.stopPropagation();
+    });
+    $('.navbar').click(function (e) {
+        e.stopPropagation();
+    });
+    $('.sidemenu-shown').click(function (e) {
+        e.stopPropagation();
+    });
+    $('.color-codes').click(function (e) {
+        e.stopPropagation();
+    });
+
     var editable = false;
 
     /// if creating new palette
@@ -72,7 +89,7 @@ $(document).ready(function() {
 
 
     //Switch tabs
-    $('.paleta').on("click", '.tabs-link', function () {
+    $('.color').on("click", '.tabs-link', function (event) {
         var target = $(this).attr('target');
         updateHSLSliders($(this).closest('.color'));
         updateRGBSliders($(this).closest('.color'));
@@ -84,7 +101,7 @@ $(document).ready(function() {
             $(this).removeClass('active-tab');
         })
         $(this).addClass('active-tab');
-
+        event.stopPropagation();
     })
 
     //
@@ -193,6 +210,14 @@ $(document).ready(function() {
 
     $( '.paleta' ).disableSelection();
 
+    $('.color').on("click",'.more-color',function (e) {
+        if(editable){
+            var color = $(this).html();
+            var object = $('.color');
+            changeColor(object,color);
+            e.stopPropagation();
+        }
+    })
 
     //Match form names after sorting
     function matchNames(){
@@ -203,21 +228,37 @@ $(document).ready(function() {
     }
 
 
-    //CLICK ON COLOR / ACTIVATE
-    var clickDisabled = false;
-    var sortable = false;
-    $('.paleta').on('click','.color', function(event) {
+    // //CLICK ON COLOR / ACTIVATE
+    // var clickDisabled = false;
+    // var sortable = false;
+    // $('.paleta').on('click','.color', function(event) {
+    //     event.preventDefault();
+    //     if (clickDisabled || $(event.target).is('.glyphicon'))
+    //     {return;}
+    //     if ($(this).hasClass('active')){
+    //         $(this).removeClass('active');
+    //     }
+    //     else{
+    //         $(this).addClass('active');
+    //     }
+    //
+    //
+    //
+    //
+    // });
 
-        if (clickDisabled || $(event.target).is('.glyphicon'))
-        {return;}
-        $('.color').removeClass('active');
+    $('.color').on('click', function(e) {
+        e.stopPropagation();
         $(this).addClass('active');
-
-
     });
 
+    $('.container-fluid').on('click', function (event) {
+            $('.color').removeClass('active');
+    });
+
+
     //Edit palette
-    $('.edit').click(function(){
+    $('.edit').click(function(e){
         editable = true;
         $('.edit').addClass('hidden');
         $('.creator').html(" ");
@@ -231,6 +272,7 @@ $(document).ready(function() {
         $('.views').addClass('hidden');
         $('.likeheart').addClass('hidden');
         $('.comment-wrapper').addClass('hidden');
+        e.stopPropagation();
 
     });
 
@@ -257,8 +299,9 @@ $(document).ready(function() {
 
 
     //submit form
-    $('.save').click(function(){
-        document.paletaForm.submit()
+    $('.save').click(function(e){
+        document.paletaForm.submit();
+        e.stopPropagation();
 
     });
 
@@ -392,6 +435,7 @@ $(document).ready(function() {
         $('.showoff').css("color",colorhex);
         $('#svg-head').css("fill",colorhex);
         $('#svg-shroom').css("fill",colorhex);
+        //$('.color-more').css("background-color", colorhex);
 
         //calculate iluminancy and change fonts
         var hsl=rgbToHsl(hexToRgb(colorhex).r,hexToRgb(colorhex).g,hexToRgb(colorhex).b);
@@ -406,6 +450,7 @@ $(document).ready(function() {
         changemonochromaticColors(colorhex);
         changetriadicColors(colorhex);
         changecomplementaryColor(colorhex);
+        changecolorcodes(colorhex);
 
 
 
@@ -489,6 +534,37 @@ $(document).ready(function() {
         else{
             $('#complementary').css("color",'white');
         }
+
+    }
+
+    function  changecolorcodes(colorhex) {
+        var color = tinycolor(colorhex);
+        var text = $('<div class="col-lg-3 col-md-6">///// COLOR CODES <br>\n' +
+            '                        RGB: '+ color.toRgbString()+'<br>\n' +
+            '                        RGBA: rgba'+ color.toRgbString().slice(3, -1)+', 1)<br>\n' +
+            '                        HEX: '+ color.toHexString()+'<br>\n' +
+            '                        HSL: '+ color.toHslString()+'<br>\n' +
+            '                        HSV: '+ color.toHsvString()+'\n' +
+            '                    </div>\n' +
+            '                    <div class="col-lg-5 col-md-6">///// CSS CODES <br>\n' +
+            '                        <span class="highlight">.mybgcolor</span> { background-color:'+ color.toHexString()+'; }<br>\n' +
+            '                        <span class="highlight">.myforecolor</span> { color:'+ color.toHexString()+'; }<br>\n' +
+            '                        <span class="highlight">.mybordercolor</span> { border:3px solid '+ color.toHexString()+'; }<br>\n' +
+            '                    </div>\n' +
+            '                    <div class="col-lg-4 col-md-12">///// CSS3 EXAMPLES <br>\n' +
+            '                        <span class="highlight">.textShadowRgb</span> {<br>\n' +
+            '                        text-shadow: 4px 4px 2px '+ color.toRgbString()+'; <br>\n' +
+            '                        }<br>\n' +
+            '                        <span class="highlight">.textShadowHex</span> {<br>\n' +
+            '                        text-shadow: 4px 4px 2px '+ color.toHexString()+'; <br>\n' +
+            '                        }<br>\n' +
+            '                        <span class="highlight">.divShadow</span> {<br>\n' +
+            '                        -moz-box-shadow: 1px 1px 3px 2px '+ color.toHexString()+';<br>\n' +
+            '                        -webkit-box-shadow: 1px 1px 3px 2px '+ color.toHexString()+';<br>\n' +
+            '                        box-shadow:         1px 1px 3px 2px '+ color.toHexString()+'; <br>\n' +
+            '                        }<br>\n' +
+            '                    </div>')
+        $('.color-codes').html(text);
 
     }
 
@@ -591,6 +667,7 @@ $(document).ready(function() {
             $('#newcomment_text').val("");
             $('#newcomment_text').attr("placeholder","Napisz swój komentarz zanim go dodasz")
         }
+        e.stopPropagation();
     })
 
     $('body').on('click', '.deletecomment', function(e) {
@@ -618,7 +695,7 @@ $(document).ready(function() {
 
 
         }
-
+        e.stopPropagation();
     });
 
 
@@ -664,7 +741,7 @@ $(document).ready(function() {
                 console.log('Error:', data);
             }
         });
-
+        e.stopPropagation();
     });
 
 

@@ -177,7 +177,7 @@ a:focus {
 
 .color-content > div {
   padding: 0px 40px;
-  padding-bottom: 80px;
+  margin-bottom: 80px;
 }
 
 .suwaki {
