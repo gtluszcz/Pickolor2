@@ -248,6 +248,8 @@ $(document).ready(function() {
     // });
 
     $('.color').on('click', function(e) {
+        if ($(e.target).is('.glyphicon'))
+            {return;}
         e.stopPropagation();
         $(this).addClass('active');
     });
@@ -700,7 +702,7 @@ $(document).ready(function() {
 
 
 
-    $('body').on('click', '.likeheart', function(e) {
+    $('.likeheart').click(function(e) {
         e.preventDefault();
 
         $.ajaxSetup({
