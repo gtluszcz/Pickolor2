@@ -64,6 +64,7 @@ function rgbToHsl(r, g, b) {
 
     return [ h, s, l ];
 }
+
 function hsl2rgb(h, s, l) {
     s=s.replace('%','');
     l=l.replace('%','');

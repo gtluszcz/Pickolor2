@@ -1,0 +1,20 @@
+body{
+  background-image: linear-gradient(rgb(22, 12, 33) 0%, rgb(13, 18, 37) 100%);
+  color: #d6d6d7;
+}
+.plus,.nav-icon4 span{
+  background-color: #d6d6d7;
+  color: rgb(22, 12, 33);
+}
+
+.active-tab, .tab-link:hover{
+  background-color: #d6d6d7;
+  color: rgb(22, 12, 33);
+}
+.chat-header{
+  background-color: #2D0A56;
+}
+div.order.show, order:hover,.dropdown-menu, .addpalette-title:hover{
+  background-color: #d6d6d7;
+  color: rgb(22, 12, 33);
+}

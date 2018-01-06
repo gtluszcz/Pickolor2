@@ -357,6 +357,139 @@ a, a:hover{
   }
 
 }
+
+
+//CHAT
+
+.chat-wrapper{
+  position: fixed;
+  top: calc(100% - 30px);
+  //bottom: 0px;
+  left: calc(100% - 400px);
+  width: 400px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  min-height: 30px;
+  min-width: 200px;
+  transition: height 0.4s ease, top 0.4s ease;
+
+
+}
+.chat-header{
+  text-align: center;
+  background-color: #5E17AF;
+  color: #fff;
+  padding: 5px;
+  border-radius: 8px 8px 0 0;
+  letter-spacing: 0.1em;
+}
+.chat-main{
+  height: 0px;
+  position: relative;
+  background-color: #faf9fa;
+  color: #232323;
+  overflow-y: scroll;
+  padding: 5px;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.chat-new-wrapper{
+  height: 40px;
+  background-color: white;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .1), 0 2px 2px -2px rgba(0, 0, 0, .02), 0 1px 4px 0 rgba(0, 0, 0, .04) !important;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+.new-msg{
+  flex-grow: 1;
+  margin: 5px;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .1) inset, 0 2px 2px -2px rgba(0, 0, 0, .02) inset, 0 1px 4px 0 rgba(0, 0, 0, .04) inset !important;
+  border: 0;
+  padding: 5px;
+  color: #999
+
+}
+.new-msg:focus{
+  border: 0;
+  outline: 0;
+}
+.new-msg-button{
+  margin: 5px;
+  color: #5E17AF;
+  line-height: 40px;
+}
+.glyphicon-ok{
+  margin: 0px 10px 0px 5px !important;
+}
+.msg *{
+  margin: 0 3px;
+}
+.msg{
+  display: flex;
+  flex-direction: row;
+  color: #666;
+  font-size: 13px;
+}
+
+.msg-time{
+  font-size: 12px;
+  color: #333;
+}
+.msg-author{
+  //color: #5E17AF;
+  font-weight: 700;
+}
+.msg-body{
+
+}
+.css-switch-wrapper{
+  position: absolute;
+  bottom: 40px;
+  left: 52px;
+  height: 26px;
+  width: 95px;
+  border-radius: 13px;
+  overflow: hidden;
+  opacity: 0.6;
+  border: 1px solid white;
+}
+.css-switch-holder{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  line-height: 24px;
+  border-radius: 10px;
+  transition: 0.2s all ease, 0s color ease;
+  left: 0px;
+
+}
+.css-switch-circle{
+  background-color:white;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .1), 0 2px 2px -2px rgba(0, 0, 0, .02), 0 1px 4px 0 rgba(0, 0, 0, .04) !important;
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  margin: 0 -10px;
+  z-index: 3;
+
+}
+.css-switch{
+  width: 80px;
+  text-align: center;
+  height: 24px;
+  padding:  0 15px;
+  color: inherit;
+  flex-shrink: 0;
+}
+.css-switch-other{
+  left:-71px;
+}
+
+
 @media (max-width: 500px) {
 
   .searchinput{

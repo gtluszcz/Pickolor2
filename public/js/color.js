@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 60);
+/******/ 	return __webpack_require__(__webpack_require__.s = 61);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 60:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(61);
+module.exports = __webpack_require__(62);
 
 
 /***/ }),
 
-/***/ 61:
+/***/ 62:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
@@ -474,6 +474,9 @@ $(document).ready(function () {
         $('.showoff').css("color", colorhex);
         $('#svg-head').css("fill", colorhex);
         $('#svg-shroom').css("fill", colorhex);
+        $('.chat-header').css("background-color", colorhex);
+        $('.msg-author').css("color", colorhex);
+        $('.new-msg-button').css("color", colorhex);
         //$('.color-more').css("background-color", colorhex);
 
         //calculate iluminancy and change fonts

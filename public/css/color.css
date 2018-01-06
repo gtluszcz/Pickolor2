@@ -17,7 +17,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #f7f7f7;
+  background: #f7f7f7 !important;
 }
 
 .container-fluid {
@@ -67,10 +67,6 @@ body {
   }
 }
 
-.sidemenu-shown {
-  z-index: 2;
-}
-
 .sidemenu-shown * {
   mix-blend-mode: difference;
   color: black;
@@ -82,8 +78,8 @@ body {
   mix-blend-mode: difference;
 }
 
-.container {
-  padding-left: 1px;
+.showoff {
+  position: relative;
 }
 
 .showoff * {

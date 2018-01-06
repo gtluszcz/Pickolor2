@@ -10,7 +10,7 @@ p, .glyphicon{
 }
 .palettes-tabs{
   display: flex;
-  border: 2px solid floralwhite;
+  border: 2px solid;
   line-height: 25px;
   border-radius: 10px;
   overflow: hidden;
@@ -30,6 +30,8 @@ p, .glyphicon{
   margin-top: 30px;
 }
 .addpalette-title{
+  background-color: transparent !important;
+  color: inherit !important;
   padding: 0 10px;
   font-size: 18px;
 }
@@ -176,7 +178,7 @@ p, .glyphicon{
   justify-content: space-between;
   padding: 0 5px;
   height: 30px;
-  color: white;
+  color: inherit;
 }
 .color-title{
   line-height: 30px;
@@ -196,7 +198,7 @@ p, .glyphicon{
   font-size: 18px;
   padding-left: 5px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: white;
+  color: inherit;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

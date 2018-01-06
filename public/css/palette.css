@@ -8,7 +8,8 @@
   font-size: 80px;
 }
 
-.controls {
+.controls,
+.gradient-controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,7 +137,8 @@
           align-items: center;
 }
 
-.color-title {
+.color-title,
+.gradient-title {
   text-transform: uppercase;
   float: left;
   margin-left: 40px;
@@ -151,7 +153,8 @@
 
 .color-title:focus,
 .palete-title:focus,
-a:focus {
+a:focus,
+.gradient-title {
   outline: none;
 }
 
@@ -229,9 +232,9 @@ a:focus {
   border: 2px solid;
   border-radius: 4px 4px 0 0;
   border-bottom-color: transparent;
-  background-color: inherit;
+  background-color: inherit !important;
   z-index: 2;
-  color: inherit;
+  color: inherit !important;
 }
 
 .active-tab:hover {
@@ -377,7 +380,8 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:hover {
 .user-comment,
 .nameandlogo,
 .dateandcontrols,
-.addcomment {
+.addcomment,
+.gradient-controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -452,6 +456,103 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:hover {
 
 .comment-time {
   margin-right: 15px;
+}
+
+.create-gradient {
+  border-radius: 15px;
+  height: 30px;
+  width: 160px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  background-color: white;
+  color: black;
+  line-height: 30px;
+  margin: 10px auto;
+  margin-top: 30px;
+  -webkit-box-shadow: 1px 1px 4px #232323;
+          box-shadow: 1px 1px 4px #232323;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+.gradient-form {
+  height: 320px;
+  margin-top: 20px;
+  -webkit-transition: height 0.2s ease;
+  transition: height 0.2s ease;
+  overflow: hidden;
+}
+
+.squeeze {
+  height: 0px;
+}
+
+.gradient-title {
+  font-size: 22px;
+  text-transform: none;
+  font-family: inherit;
+  border-left: 1px solid;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.gradient-slider {
+  margin: 70px 20px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.pointer {
+  height: 40px;
+  position: relative;
+  float: left;
+  bottom: 40px;
+  margin: 0 -20px;
+  fill: white;
+  opacity: 1;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+
+.pointer-hide,
+.button-hide {
+  opacity: 0;
+}
+
+.button-hide {
+  margin: 0 auto;
+}
+
+.gradientchange {
+  position: initial;
+  opacity: 0.9;
+}
+
+.color-codes {
+  margin-top: 40px;
+  position: relative;
+  z-index: 4;
+  overflow-x: scroll;
+  background: #292b36;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  text-align: left;
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 12px #151515, 1px 1px 11px #464646;
+  box-shadow: inset 0 0 12px #151515;
+}
+
+.color-codes > div {
+  padding: 10px 0;
+}
+
+.highlight {
+  color: #f1c40f;
 }
 
 div.jQWCP-wWidget.jQWCP-block,

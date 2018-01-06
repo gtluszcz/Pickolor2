@@ -1,0 +1,30 @@
+body {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#160c21), to(#0d1225));
+  background-image: linear-gradient(#160c21 0%, #0d1225 100%);
+  color: #d6d6d7;
+}
+
+.plus,
+.nav-icon4 span {
+  background-color: #d6d6d7;
+  color: #160c21;
+}
+
+.active-tab,
+.tab-link:hover {
+  background-color: #d6d6d7;
+  color: #160c21;
+}
+
+.chat-header {
+  background-color: #2D0A56;
+}
+
+div.order.show,
+order:hover,
+.dropdown-menu,
+.addpalette-title:hover {
+  background-color: #d6d6d7;
+  color: #160c21;
+}
+

@@ -16,7 +16,7 @@ body{
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #f7f7f7;
+  background: #f7f7f7 !important;
 
 
 }
@@ -35,9 +35,7 @@ body{
   100% { background-position: 50% 50%; }
 }
 
-.sidemenu-shown{
-  z-index: 2;
-}
+
 .sidemenu-shown * {
   mix-blend-mode: difference;
   color: black;
@@ -45,18 +43,16 @@ body{
 .navbar,.controls,.user-comment{
   mix-blend-mode: difference;
 }
-.container{
-  padding-left: 1px;
-}
 
 .showoff{
-  //position: relative;
+  position: relative;
 }
 .showoff *{
   //font-size: 50px;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 10px;
+
 }
 
 .text1{

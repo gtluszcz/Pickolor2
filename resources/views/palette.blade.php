@@ -25,6 +25,7 @@
     <script src="../js/external/jquery-ui.min.js"></script>
     <script src="../js/external/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="../js/external/jquery.wheelcolorpicker.js"></script>
+    <script type='text/javascript' src='../js/external/tinycolor.js'></script>
 
     <!--my js-->
     <script src="../js/menu.js"></script>
@@ -387,10 +388,96 @@
     </form>
 
     <!--below palette controlling buttons-->
-    <div class="controls">
+    <div class="controls downcontrols">
         <div class="views"><span class="glyphicon glyphicon-eye-open"></span><div>@if(!$new){{$palette->views}} @else 0 @endif</div></div>
         <div class="likes"><span class="glyphicon glyphicon-heart"></span><div id="likesamount">@if(!$new){{$palette->likes}} @else 0 @endif</div></div>
     </div>
+
+
+
+
+
+
+
+
+    <div class="create-gradient">gradient</div>
+    <form class="gradient-form squeeze" name="gradientForm" method="post" href="/gradient">
+        <div class="gradient-controls">
+
+            <input class="gradient-title" name="name" type="text" maxlength="11" value="unnamed"  spellcheck="false">
+
+
+            <div class="css-switch-wrapper gradientchange">
+                <div class="css-switch-holder">
+                    <div class="css-switch">linear</div>
+                    <div class="css-switch-circle"></div>
+                    <div class="css-switch">radial</div>
+                </div>
+            </div>
+
+            @if(auth()->check())
+                <span class="save-gradient glyphicon glyphicon-floppy-saved" type="submit"></span>
+            @else
+                <span class="glyphicon glyphicon-floppy-saved cantAddNewColor" type="submit"></span>
+            @endif
+        </div>
+
+        <div class="gradient-slider">
+
+            @if(!$new)
+                <?php $counter2=0?>
+                @foreach($colors as $color)
+                    <?php $counter2+=1?>
+                    <svg id="pointer{{$counter2}}" class="pointer" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 35.2 35.2" style="enable-background:new 0 0 35.2 35.2;" xml:space="preserve">
+                    <path d="M17.6,0c-6.6,0-12,5.3-12,11.9c0,3.4,3.3,9.4,3.3,9.4l8.2,14l8.6-13.8c0,0,3.8-5.7,3.8-9.5C29.6,5.3,24.2,0,17.6,0z
+                    M17.6,18.4c-3.8,0-6.8-3.1-6.8-6.9c0-3.8,3.1-6.8,6.8-6.8c3.8,0,6.9,3.1,6.9,6.8C24.4,15.4,21.3,18.4,17.6,18.4z"/>
+                    <circle class="pointercolor" cx="17.6" cy="11.6" r="10"/>
+                    </svg>
+                @endforeach
+            @else
+                                <svg id="pointer1" class="pointer" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 35.2 35.2" style="enable-background:new 0 0 35.2 35.2;" xml:space="preserve">
+                    <path d="M17.6,0c-6.6,0-12,5.3-12,11.9c0,3.4,3.3,9.4,3.3,9.4l8.2,14l8.6-13.8c0,0,3.8-5.7,3.8-9.5C29.6,5.3,24.2,0,17.6,0z
+                    M17.6,18.4c-3.8,0-6.8-3.1-6.8-6.9c0-3.8,3.1-6.8,6.8-6.8c3.8,0,6.9,3.1,6.9,6.8C24.4,15.4,21.3,18.4,17.6,18.4z"/>
+                                    <circle class="pointercolor" cx="17.6" cy="11.6" r="10"/>
+                    </svg>
+                                <svg id="pointer2" class="pointer" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 35.2 35.2" style="enable-background:new 0 0 35.2 35.2;" xml:space="preserve">
+                    <path d="M17.6,0c-6.6,0-12,5.3-12,11.9c0,3.4,3.3,9.4,3.3,9.4l8.2,14l8.6-13.8c0,0,3.8-5.7,3.8-9.5C29.6,5.3,24.2,0,17.6,0z
+                    M17.6,18.4c-3.8,0-6.8-3.1-6.8-6.9c0-3.8,3.1-6.8,6.8-6.8c3.8,0,6.9,3.1,6.9,6.8C24.4,15.4,21.3,18.4,17.6,18.4z"/>
+                                    <circle class="pointercolor" cx="17.6" cy="11.6" r="10"/>
+                    </svg>
+                                <svg id="pointer3" class="pointer" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 35.2 35.2" style="enable-background:new 0 0 35.2 35.2;" xml:space="preserve">
+                    <path d="M17.6,0c-6.6,0-12,5.3-12,11.9c0,3.4,3.3,9.4,3.3,9.4l8.2,14l8.6-13.8c0,0,3.8-5.7,3.8-9.5C29.6,5.3,24.2,0,17.6,0z
+                    M17.6,18.4c-3.8,0-6.8-3.1-6.8-6.9c0-3.8,3.1-6.8,6.8-6.8c3.8,0,6.9,3.1,6.9,6.8C24.4,15.4,21.3,18.4,17.6,18.4z"/>
+                                    <circle class="pointercolor" cx="17.6" cy="11.6" r="10"/>
+                    </svg>
+            @endif
+
+
+
+
+        </div>
+
+        <div class="color-codes">
+            <div class="col-lg-12 col-md-12">///// CSS CODES <br>
+                <span class="highlight">.mylineargradient</span> { background-color:#ff9699; }<br>
+                <span class="highlight">.mylineargradient</span> { color:#ff9699; }<br>
+                <span class="highlight">.mylineargradient</span> { border:3px solid #ff9699; }<br>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+
+
+
+
 
     @if(!$new)
     <div class="comment-wrapper">

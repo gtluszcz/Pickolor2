@@ -13,4 +13,15 @@
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="/palettes/all" >Palets</a></div>
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="/colors/all" >Colors</a></div>
     <div class="sidemenu-bar side-menu-link onlymobile"><a href="#" >Gradients</a></div>
+
+    @if (!Request::is("color/*") and !Request::is("palette/*") and !Request::is("palette") and !Request::is("color"))
+
+        <div class="css-switch-wrapper othercss">
+            <div class="css-switch-holder">
+                <div class="css-switch">normal</div>
+                <div class="css-switch-circle"></div>
+                <div class="css-switch">dark</div>
+            </div>
+        </div>
+    @endif
 </div>

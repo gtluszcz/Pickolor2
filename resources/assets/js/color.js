@@ -437,6 +437,9 @@ $(document).ready(function() {
         $('.showoff').css("color",colorhex);
         $('#svg-head').css("fill",colorhex);
         $('#svg-shroom').css("fill",colorhex);
+        $('.chat-header').css("background-color", colorhex);
+        $('.msg-author').css("color",colorhex);
+        $('.new-msg-button').css("color",colorhex);
         //$('.color-more').css("background-color", colorhex);
 
         //calculate iluminancy and change fonts

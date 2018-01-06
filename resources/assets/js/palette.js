@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    var linear=true;
     $('.wheel-picker').wheelColorPicker({
         sliders: "w",
         layout: "block",
@@ -28,6 +29,7 @@ $(document).ready(function() {
             $('.likeheart').addClass('hidden');
             $('.glyphicon-heart.cantAddNewColor').addClass('hidden');
             $('.comment-wrapper').addClass('hidden');
+            $('.downcontrols').addClass('hidden');
             if ($('.paleta').children('.color').length <= 2){
                 $('.glyphicon-trash').addClass('sort-hidden');
             }
@@ -237,6 +239,11 @@ $(document).ready(function() {
             index=index+1;
             $(this).attr('name','color'+index);
         });
+        $( ".pointer" ).each(function(index){
+            index=index+1;
+            $(this).attr('id','pointer'+index);
+        });
+        matchgradientcolors();
     }
 
 
@@ -272,6 +279,7 @@ $(document).ready(function() {
         $('.likeheart').addClass('hidden');
         $('.glyphicon-heart.cantAddNewColor').addClass('hidden');
         $('.comment-wrapper').addClass('hidden');
+        $('.downcontrols').addClass('hidden');
         if ($('.paleta').children('.color').length <= 2){
             $('.glyphicon-trash').addClass('sort-hidden');
         }
@@ -291,9 +299,14 @@ $(document).ready(function() {
     $('.paleta').on('click', '.glyphicon-trash', function() {
         $(this).closest('.color').addClass('pre-remove-color');
         var color = this;
+        var index = $(this).closest('.color').find('.color-title').attr("name").slice(-1);
+        $('#pointer'+index).addClass("pointer-hide");
         setTimeout(function(){
             color.closest('.color').remove();
+            $('#pointer'+index).remove();
             checkIfCanAdd();
+            matchgradientcolors();
+            matchpointerpositions();
             changeBackgroundColor();
             matchNames();
         }, 400);
@@ -377,7 +390,16 @@ $(document).ready(function() {
                 '\n' +
                 '                </div>\n' +
                 '            </div>');
+
+            var newpointer = $(' <svg id="pointer" class="pointer" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
+                '                  viewBox="0 0 35.2 35.2" style="enable-background:new 0 0 35.2 35.2;" xml:space="preserve">\n' +
+                '            <path d="M17.6,0c-6.6,0-12,5.3-12,11.9c0,3.4,3.3,9.4,3.3,9.4l8.2,14l8.6-13.8c0,0,3.8-5.7,3.8-9.5C29.6,5.3,24.2,0,17.6,0z\n' +
+                '            M17.6,18.4c-3.8,0-6.8-3.1-6.8-6.9c0-3.8,3.1-6.8,6.8-6.8c3.8,0,6.9,3.1,6.9,6.8C24.4,15.4,21.3,18.4,17.6,18.4z"/>\n' +
+                '                 <circle  cx="17.6" cy="11.6" r="10"/>\n' +
+                '            </svg>');
+
             $('.paleta').append(mySecondDiv);
+            $('.gradient-slider').append(newpointer);
             if (sortable===true){$( ".glyphicon-sort" ).removeClass('sort-hidden');}
             else{$( ".glyphicon-sort" ).addClass('sort-hidden');}
             if (editable===true){$( ".glyphicon-trash" ).removeClass('sort-hidden');}
@@ -389,6 +411,24 @@ $(document).ready(function() {
                 autoResize: false
 
             });
+
+            $( ".pointer" ).last().draggable({
+                containment: "parent",
+                axis: "x",
+                stack: ".pointer",
+                stop: function(event, ui) {
+                    var left = $(this).offset().left - $('.gradient-slider').position().left;
+                    var width = $('.gradient-slider').width();
+                    $(this).css("left",(left/width)*100+'%');
+                },
+                drag: function (event, ui) {
+                    changeBackgroundColor();
+
+                }
+            });
+
+
+
 
             linkTabs();
 
@@ -557,7 +597,8 @@ $(document).ready(function() {
         else if (hsl[2]<=0.7){
             object.css("color", 'white');
         }
-
+        matchgradientcolors();
+        matchpointerpositions();
         //initiate background gradient change to match new color
         changeBackgroundColor();
     }
@@ -580,55 +621,87 @@ $(document).ready(function() {
         $( ".color-title" ).each(function(index){
             colors[index]=$(this).val();
         });
+        var percents = [];
+        $( ".pointer" ).each(function(index){
+            var left = $(this).offset().left - $('.gradient-slider').position().left;
+            var width = $('.gradient-slider').width();
+            percents[index]=(left/width)*100+'%';
+        });
         var coloramount = colors.length;
-
-        if(coloramount==1){
-            $("body").css("background",colors[0]);
+        if (linear==true){
+            if(coloramount==1){
+                $("body").css("background",colors[0]);
+            }
+            else if(coloramount==2){
+                $("body").css("background",'linear-gradient(to bottom, '+colors[0]+' '+percents[0]+','+colors[1]+' '+percents[1]+')');
+            }
+            else if(coloramount==3){
+                $("body").css("background",'linear-gradient(to bottom, '+colors[0]+' '+percents[0]+','+colors[1]+' '+percents[1]+','+colors[2]+' '+percents[2]+')');
+            }
+            else if(coloramount==4){
+                $("body").css("background",'linear-gradient(to bottom, '+colors[0]+' '+percents[0]+','+colors[1]+' '+percents[1]+','+colors[2]+' '+percents[2]+','+colors[3]+' '+percents[3]+')');
+            }
+            else if(coloramount==5){
+                $("body").css("background",'linear-gradient(to bottom, '+colors[0]+' '+percents[0]+','+colors[1]+' '+percents[1]+','+colors[2]+' '+percents[2]+','+colors[3]+' '+percents[3]+','+colors[4]+' '+percents[4]+')');
+            }
         }
-        else if(coloramount==2){
-            $("body").css("background",'linear-gradient(to bottom, '+colors[0]+' 0%,'+colors[1]+' 100%)');
-        }
-        else if(coloramount==3){
-            $("body").css("background",'linear-gradient(to bottom, '+colors[0]+' 0%,'+colors[1]+' 50%,'+colors[2]+' 100%)');
-        }
-        else if(coloramount==4){
-            $("body").css("background",'linear-gradient(to bottom, '+colors[0]+' 0%,'+colors[1]+' 33%,'+colors[2]+' 66%,'+colors[3]+' 100%)');
-        }
-        else if(coloramount==5){
-            $("body").css("background",'linear-gradient(to bottom, '+colors[0]+' 0%,'+colors[1]+' 25%,'+colors[2]+' 50%,'+colors[3]+' 75%,'+colors[4]+' 100%)');
+        else{
+            if(coloramount==1){
+                $("body").css("background",colors[0]);
+            }
+            else if(coloramount==2){
+                $("body").css("background",'radial-gradient('+colors[0]+' '+percents[0]+','+colors[1]+' '+percents[1]+')');
+            }
+            else if(coloramount==3){
+                $("body").css("background",'radial-gradient('+colors[0]+' '+percents[0]+','+colors[1]+' '+percents[1]+','+colors[2]+' '+percents[2]+')');
+            }
+            else if(coloramount==4){
+                $("body").css("background",'radial-gradient('+colors[0]+' '+percents[0]+','+colors[1]+' '+percents[1]+','+colors[2]+' '+percents[2]+','+colors[3]+' '+percents[3]+')');
+            }
+            else if(coloramount==5){
+                $("body").css("background",'radial-gradient('+colors[0]+' '+percents[0]+','+colors[1]+' '+percents[1]+','+colors[2]+' '+percents[2]+','+colors[3]+' '+percents[3]+','+colors[4]+' '+percents[4]+')');
+            }
         }
 
         changeFontsColor(colors);
+        changegradientcode();
     }
 
     function changeFontsColor(colors) {
-
         var coloramount = colors.length;
         if(coloramount==1){
             var hsl=rgbToHsl(hexToRgb(colors[0]).r,hexToRgb(colors[0]).g,hexToRgb(colors[0]).b);
             if (hsl[2]>0.7){
-                $('body').css("color", 'black');
-                $('.nav-icon4 span').css('background-color','black');
+                changeelemntscolorto("black");
+
             }
             else if (hsl[2]<=0.7){
-                $('body').css("color", 'white');
-                $('.nav-icon4 span').css('background-color','white');
+                changeelemntscolorto("white");
             }
         }
         else if(coloramount>=2){
             var hsl=rgbToHsl(hexToRgb(colors[0]).r,hexToRgb(colors[0]).g,hexToRgb(colors[0]).b);
             var hsl2=rgbToHsl(hexToRgb(colors[1]).r,hexToRgb(colors[1]).g,hexToRgb(colors[1]).b);
             if (hsl[2]>0.7 || hsl2[2]>0.7){
-                $('body').css("color", 'black');
-                $('.nav-icon4 span').css('background-color','black');
+                changeelemntscolorto("black");
             }
             else if (hsl[2]<=0.7 && hsl2[2]<=0.7){
-                $('body').css("color", 'white');
-                $('.nav-icon4 span').css('background-color','white');
+                changeelemntscolorto("white");
             }
 
         }
 
+
+    }
+    function changeelemntscolorto(color) {
+        $('body').css("color", color);
+        $('.nav-icon4 span').css('background-color',color);
+        if (color=="black"){
+
+        }
+       else{
+
+        }
 
     }
 
@@ -792,5 +865,127 @@ $(document).ready(function() {
         });
 
     });
+
+
+    /// Gradient
+    $('.create-gradient').click(function () {
+        $('.gradient-form').removeClass('squeeze');
+        $('.create-gradient').addClass('button-hide');
+    })
+
+
+    $( ".pointer" ).draggable({
+        containment: "parent",
+        axis: "x",
+        stack: ".pointer",
+        stop: function(event, ui) {
+            var left = $(this).offset().left - $('.gradient-slider').position().left;
+            var width = $('.gradient-slider').width();
+            $(this).css("left",(left/width)*100+'%');
+        },
+        drag: function (event, ui) {
+            changeBackgroundColor();
+
+        }
+    });
+
+    function matchgradientcolors() {
+        $( ".color-title" ).each(function(index){
+            index=index+1;
+            var color = $(this).val();
+            $("#pointer"+index+" circle").css('fill',color);
+        });
+
+    }
+    function matchpointerpositions() {
+        var amount = $('.gradient-slider').children().length;
+        var prc = 100/(amount-1);
+        var offset = 0;
+        $( ".color-title" ).each(function(index){
+            index=index+1;
+            $("#pointer"+index).css('left',offset+'%');
+            offset+=prc;
+        });
+
+    }
+
+
+    $(".gradientchange").click(function () {
+        $('.css-switch-holder').toggleClass('css-switch-other');
+        linear=!linear;
+        changeBackgroundColor();
+    })
+
+    function changegradientcode(){
+        var colors = [];
+        $( ".color-title" ).each(function(index){
+            colors[index]=$(this).val();
+        });
+        var percents = [];
+        $( ".pointer" ).each(function(index){
+            var left = $(this).offset().left - $('.gradient-slider').position().left;
+            var width = $('.gradient-slider').width();
+            percents[index]=Math.round((left/width)*100)+'%';
+        });
+        var coloramount = colors.length;
+        var code;
+        var start;
+
+        if (linear==true){
+            start = 'linear-gradient(to bottom, ';
+        }else{
+            start = 'radial-gradient(';
+        }
+
+        if(coloramount==1){
+            var color = tinycolor(colors[0]);
+            code = $('<div class="col-lg-12 col-md-12">///// CSS CODES <br>\n' +
+                '                <span class="highlight">.mygradient</span> { background-color:'+colors[0]+'; }<br>\n' +
+                '                <span class="highlight">.mygradient</span> { background-color:'+color.toRgbString()+'; }<br>\n' +
+                '            </div>');
+        }
+        else if(coloramount==2){
+            var color = tinycolor(colors[0]);
+            var color2 = tinycolor(colors[1]);
+            code = $('<div class="col-lg-12 col-md-12">///// CSS CODES <br>\n' +
+                '                <span class="highlight">.mygradient</span> { background: '+start+colors[0]+' '+percents[0]+', '+colors[1]+' '+percents[1]+'); }<br>\n' +
+                '                <span class="highlight">.mygradient</span> { background: '+start+color.toRgbString()+' '+percents[0]+', '+color2.toRgbString()+' '+percents[1]+'); }<br>\n' +
+                '            </div>');
+        }
+        else if(coloramount==3){
+            var color = tinycolor(colors[0]);
+            var color2 = tinycolor(colors[1]);
+            var color3 = tinycolor(colors[2]);
+            code = $('<div class="col-lg-12 col-md-12">///// CSS CODES <br>\n' +
+                '                <span class="highlight">.mygradient</span> { background: '+start+colors[0]+' '+percents[0]+', '+colors[1]+' '+percents[1]+', '+colors[2]+' '+percents[2]+'); }<br>\n' +
+                '                <span class="highlight">.mygradient</span> { background: '+start+color.toRgbString()+' '+percents[0]+', '+color2.toRgbString()+' '+percents[1]+', '+color3.toRgbString()+' '+percents[2]+'); }<br>\n' +
+                '            </div>');
+        }
+        else if(coloramount==4){
+            var color = tinycolor(colors[0]);
+            var color2 = tinycolor(colors[1]);
+            var color3 = tinycolor(colors[2]);
+            var color4 = tinycolor(colors[3]);
+            code = $('<div class="col-lg-12 col-md-12">///// CSS CODES <br>\n' +
+                '                <span class="highlight">.mygradient</span> { background: '+start+colors[0]+' '+percents[0]+', '+colors[1]+' '+percents[1]+', '+colors[2]+' '+percents[2]+', '+colors[3]+' '+percents[3]+'); }<br>\n' +
+                '                <span class="highlight">.mygradient</span> { background: '+start+color.toRgbString()+' '+percents[0]+', '+color2.toRgbString()+' '+percents[1]+', '+color3.toRgbString()+' '+percents[2]+', '+color4.toRgbString()+' '+percents[3]+'); }<br>\n' +
+                '            </div>');
+        }
+        else if(coloramount==5){
+            var color = tinycolor(colors[0]);
+            var color2 = tinycolor(colors[1]);
+            var color3 = tinycolor(colors[2]);
+            var color4 = tinycolor(colors[3]);
+            var color5 = tinycolor(colors[4]);
+            code = $('<div class="col-lg-12 col-md-12">///// CSS CODES <br>\n' +
+                '                <span class="highlight">.mygradient</span> { background: '+start+colors[0]+' '+percents[0]+', '+colors[1]+' '+percents[1]+', '+colors[2]+' '+percents[2]+', '+colors[3]+' '+percents[3]+', '+colors[4]+' '+percents[4]+'); }<br>\n' +
+                '                <span class="highlight">.mygradient</span> { background: '+start+color.toRgbString()+' '+percents[0]+', '+color2.toRgbString()+' '+percents[1]+', '+color3.toRgbString()+' '+percents[2]+', '+color4.toRgbString()+' '+percents[3]+', '+color5.toRgbString()+' '+percents[4]+'); }<br>\n' +
+                '            </div>');
+        }
+
+
+
+        $('.color-codes').html(code);
+    }
 
 });

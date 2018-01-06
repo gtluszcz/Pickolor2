@@ -65,4 +65,7 @@ Route::delete('/ccomments/{comment}','ColorsController@deletecomment');
 
 Route::post('/color','ColorsController@savenew');
 
+Route::post('/chat/new','ChatController@nowy');
+Route::post('/chat/refresh','ChatController@getlast');
+
 

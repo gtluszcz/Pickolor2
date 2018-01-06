@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/allpalettes.css">
     <link rel="stylesheet" href="../css/allcolors.css">
+    <link id="css_other" rel="stylesheet" href="">
 @endsection
 
 
