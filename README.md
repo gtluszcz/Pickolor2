@@ -1,10 +1,10 @@
 # Pickolor2 - Online color picker and color palettes creator
 
-## Pickolor is a highly intuitive color picker designed especialy for developers. Discover it's magical powers and sign up now...
+### Pickolor is a simple and highly intuitive color picker designed especialy for developers. Discover it's magical powers!
 
 ## Installation
 ```bash
-git clone https://github.com/gtluszcz/pickolor2.git
+git clone https://github.com/gtluszcz/Pickolor2.git
 cd pickolor2
 composer install
 cp .env.example .env
